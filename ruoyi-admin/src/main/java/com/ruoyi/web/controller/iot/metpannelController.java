@@ -10,6 +10,6 @@ public class metpannelController {
     private String prefix="metpannel";
 
     public String metpannel(){
-
+        return prefix + "metpannel";
     }
 }
