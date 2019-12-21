@@ -27,8 +27,54 @@
     <script th:src="@{/ajax/libs/jquery-ztree/3.5/js/jquery.ztree.all-3.5.js}"></script>
     <link th:href="@{/ajax/libs/jquery-layout/jquery.layout-latest.css}" rel="stylesheet"/>
     <link th:href="@{/ajax/libs/jquery-ztree/3.5/css/metro/zTreeStyle.css}" rel="stylesheet"/>
+
+    <style>
+        .booth {
+            width:400px;
+            border: 100px;
+            margin-left: 40px;
+        }
+    </style>
 </head>
 <body class="gray-bg">
-<p align="center">摄像头数据</p>
+<p align="center" style="font-size: 40px">摄像头数据</p>
+
+<div class="booth">
+    <video id="video" width="600" height="400"></video>
+    <br>
+    <button id='tack' style="font-size: 15px">截图拍照</button>
+    <button id='onCamera' style="font-size: 15px">打开摄像头</button>
+    <button onclick="funClose();" style="font-size: 15px">关闭摄像头</button>
+    <br>
+    <canvas id='canvas' width='600' height='400'></canvas>
+</div>
+<script>
+    var video = document.getElementById('video'),
+        canvas = document.getElementById('canvas'),
+        snap = document.getElementById('tack'),
+        vendorUrl = window.URL || window.webkitURL;
+    //媒体对象
+    navigator.getMedia = navigator.getUserMedia ||
+        navagator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
+    navigator.getMedia({
+        video: true, //使用摄像头对象
+        audio: false  //不适用音频
+    }, function(strem){
+        console.log(strem);
+        video.src = vendorUrl.createObjectURL(strem);
+        video.play();
+    }, function(error) {
+        //error.code
+        console.log(error);
+    });
+    snap.addEventListener('click', function(){
+        //绘制canvas图形
+        canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
+        //把canvas图像转为img图片
+        img.src = canvas.toDataURL("image/png");
+    })
+</script>
 </body>
 </html>
