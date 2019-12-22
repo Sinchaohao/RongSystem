@@ -40,6 +40,11 @@ public enum DataSourceType
     /**
      * 从库六
      */
-    SXBAODIAN
+    SXBAODIAN,
+
+    /**
+     * 从库七
+     */
+    SXIOT
 
 }
