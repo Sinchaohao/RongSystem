@@ -65,11 +65,11 @@ public interface SysLogininforMapper
     public List<PageData> CountHotLocal();
 
     /**
-     * 获取所有登陆地点
-     *
-     * @return 结果
-     */
-    public List<PageData> CountLocal();
+ * 获取所有登陆地点
+ *
+ * @return 结果
+ */
+public List<PageData> CountLocal();
 
     /**
      * 获取最近创建的三个用户
