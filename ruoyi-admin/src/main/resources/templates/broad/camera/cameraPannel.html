@@ -28,31 +28,86 @@
     <link th:href="@{/ajax/libs/jquery-layout/jquery.layout-latest.css}" rel="stylesheet"/>
     <link th:href="@{/ajax/libs/jquery-ztree/3.5/css/metro/zTreeStyle.css}" rel="stylesheet"/>
 
+
     <style>
         .booth {
             width:400px;
-            border: 100px;
-            margin-left: 40px;
+            margin-left: 100px;
+            border:1px solid #2F4056;
         }
     </style>
+
 </head>
 <body class="gray-bg">
-<p align="center" style="font-size: 40px">摄像头数据</p>
-
+<p align="center" style="font-size: 40px;color: #2F4056;">摄像头数据</p>
 <div class="booth">
-    <video id="video" width="600" height="400"></video>
+    <video id="video" width="400" height="300"></video>
     <br>
-    <button id='tack' style="font-size: 15px">截图拍照</button>
-    <button id='onCamera' style="font-size: 15px">打开摄像头</button>
-    <button onclick="funClose();" style="font-size: 15px">关闭摄像头</button>
-    <br>
-    <canvas id='canvas' width='600' height='400'></canvas>
+    <button onclick="funClose();" style="font-size: 15px;color: #2F4056">关闭摄像头</button>
 </div>
+<br>
+<div class="booth">
+    <canvas id='canvas' width='400' height='300'></canvas>
+    <br>
+    <button id='tack' style="font-size: 15px;color: #2F4056">截图拍照</button>
+    <button onClick="saveFile(filename);" type="button" style="font-size: 15px;color: #2F4056">下载图片</button>
+</div>
+
 <script>
+
+    var type = 'png';
+
+    var _fixType = function(type) {
+        type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+        var r = type.match(/png|jpeg|bmp|gif/)[0];
+        return 'image/' + r;
+    };
+    /**
+     * @param  {String} filename 文件名
+     */
+    var saveFile = function(filename){
+        //获取canvas标签里的图片内容
+        var imgData = document.getElementById('canvas').toDataURL(type);
+        imgData = imgData.replace(_fixType(type),'image/octet-stream');
+
+        var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        save_link.href = imgData;
+        save_link.download = filename;
+
+        var event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        save_link.dispatchEvent(event);
+    };
+
+    // 下载后的文件名规则
+    var filename = (new Date()).getTime() + '.' + type;
+
+
+
+    var constrains = {video:{width:400,hight:300}};
+    var mediaStreamTrack = null;
+
     var video = document.getElementById('video'),
         canvas = document.getElementById('canvas'),
         snap = document.getElementById('tack'),
         vendorUrl = window.URL || window.webkitURL;
+
+    //关闭摄像头
+    navigator.mediaDevices.getUserMedia(constrains)
+        .then(function (mediaStram) {
+            mediaStreamTrack = mediaStram.getTracks()[0];
+            var video = document.querySelector("video");
+            video.srcObject = mediaStram;
+            video.onloadedmetadata = function (e) {
+                video.play();
+            };
+        })
+        .catch(function (err) { console.log(err.name+":"+err.message); });
+    function funClose(){
+        mediaStreamTrack.stop();
+    }
+
+
     //媒体对象
     navigator.getMedia = navigator.getUserMedia ||
         navagator.webkitGetUserMedia ||
@@ -69,6 +124,8 @@
         //error.code
         console.log(error);
     });
+
+    //截图拍照功能
     snap.addEventListener('click', function(){
         //绘制canvas图形
         canvas.getContext('2d').drawImage(video, 0, 0, 400, 300);
@@ -78,3 +135,12 @@
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
