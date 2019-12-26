@@ -1,7 +1,6 @@
 package com.ruoyi.web.controller.iot;
 
 import com.ruoyi.framework.web.base.BaseController;
-import com.ruoyi.iot.service.IMetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
