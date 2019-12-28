@@ -32,18 +32,69 @@
 <div class="row  border-bottom  dashboard-header">
     <div class="wrapper wrapper-content">
         <div class="row">
-            <div class="col-xs-12 select-table table-striped">
+            <div class="col-sm-6">
                 <div class="ibox float-e-margins">
-                    <h5>安防信息 </h5>
-                    <div class="ibox-content">
-                        <table id="bootstrap-table" data-mobile-responsive="true"></table>
+                    <div class="ibox-title">
+                        <h5>空气质量报警分布可视化(100以上报警)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_pmsec()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="pmsec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>降雨量报警分布可视化(20以上报警)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_rainsec()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="rainsec"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-xs-12 select-table table-striped">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <h5>安防警报类型 </h5>
+                    <table id="bootstrap-table" data-mobile-responsive="true"></table>
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+<!--<div class="col-xs-12 select-table table-striped">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <h5>降水量警报 </h5>
+            <table id="bootstrap-table" data-mobile-responsive="true"></table>
+        </div>
+    </div>
+</div>
+</div>-->
+
+
 </div>
 </div>
 <div th:include="include :: footer"></div>
@@ -70,6 +121,33 @@
         $.table.init(options);
     }
 </script>
+<!--<script th:inline="javascript">
+    //分页查询
+    function select() {
+        var options = {
+            url: "/iot/secpannel/rain",
+            search: false,
+            columns: [
+                {
+                    field: 'rain',
+                    title: '降水量',
+                    visible: true
+                },
+                {
+                    field: 'time',
+                    title: '时间',
+                    sortable: true
+                },
+                {
+                    field: 'content',
+                    title: '警报类型',
+                    sortable: true
+                }
+            ]//警报类型的字段类型之前是text，不匹配，修改为varchar
+        };
+        $.table.init(options);
+    }
+</script>-->
 <!--jquery图表float插件-->
 <script th:src="@{/js/plugins/flot/jquery.flot.js}"></script>
 <script th:src="@{/js/plugins/flot/jquery.flot.tooltip.min.js}"></script>
