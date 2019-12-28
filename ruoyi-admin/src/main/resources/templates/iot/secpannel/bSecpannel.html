@@ -35,11 +35,30 @@
             <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>空气质量报警分布可视化(100以上报警)</h5>
+                        <h5>降雨量报警分布可视化(ml)</h5>
                         <div class="ibox-tools">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 <i class="fa fa-superpowers"></i>
                             </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_rainsec()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="rainsec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>空气质量报警分布可视化(AQI)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-superpowers"></i>
+                        </a>
                             <ul class="dropdown-menu dropdown-user">
                                 <li><a onclick="init_pmsec()">原始数据</a>
                                 </li>
@@ -54,19 +73,76 @@
             <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>降雨量报警分布可视化(20以上报警)</h5>
+                        <h5>水位报警分布可视化(mm)</h5>
                         <div class="ibox-tools">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-superpowers"></i>
-                            </a>
+                            <i class="fa fa-superpowers"></i>
+                        </a>
                             <ul class="dropdown-menu dropdown-user">
-                                <li><a onclick="init_rainsec()">原始数据</a>
+                                <li><a onclick="init_wlevelsec()">原始数据</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <div class="echarts" id="rainsec"></div>
+                        <div class="echarts" id="wlvlsec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>湿度报警分布可视化(%)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_humsec()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="humsec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>温度报警分布可视化(℃)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_tempsec()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="tempsec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>警报类型分布可视化</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_sectype()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="sectype"></div>
                     </div>
                 </div>
             </div>

@@ -26,7 +26,38 @@ public interface ISecWarnService {
      * 查询空气质量安防警报
      *
      * @param
-     * @return 降雨安防警报
+     * @return 空气质量安防警报
      */
     public List<Secwarn> selectPmSecList();
+
+    /**
+     * 查询温度安防警报
+     *
+     * @param
+     * @return 温度安防警报
+     */
+    public List<Secwarn> selectTempSecList();
+    /**
+     * 查询水位安防警报
+     *
+     * @param
+     * @return 水位安防警报
+     */
+    public List<Secwarn> selectWlvlSecList();
+
+    /**
+     * 查询湿度安防警报
+     *
+     * @param
+     * @return 湿度安防警报
+     */
+    public List<Secwarn> selectHumSecList();
+
+    /**
+     * 查询安防警报触发信息
+     *
+     * @param
+     * @return 安防警报触发信息
+     */
+    public List<Secwarn> selectTypeSecList();
 }

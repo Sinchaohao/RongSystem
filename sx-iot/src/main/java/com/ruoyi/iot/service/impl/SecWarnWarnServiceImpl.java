@@ -35,4 +35,28 @@ public class SecWarnWarnServiceImpl implements ISecWarnService {
     public List<Secwarn> selectPmSecList() {
         return secWarnMapper.selectPmSecList();
     }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Secwarn> selectTempSecList() {
+        return secWarnMapper.selectTempSecList();
+    }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Secwarn> selectWlvlSecList() {
+        return secWarnMapper.selectWlvlSecList();
+    }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Secwarn> selectHumSecList() {
+        return secWarnMapper.selectHumSecList();
+    }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Secwarn> selectTypeSecList() {
+        return secWarnMapper.selectTypeSecList();
+    }
 }
