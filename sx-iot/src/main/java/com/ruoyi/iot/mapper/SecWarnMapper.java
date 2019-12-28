@@ -8,18 +8,25 @@ package com.ruoyi.iot.mapper;/* *
  * @开发版本：综合练习V0.1
  */
 
-import com.ruoyi.iot.domain.RainSecurity;
+import com.ruoyi.iot.domain.Secwarn;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface RainSecMapper {
+public interface SecWarnMapper {
 
     /**
      * 获取所有降雨安防警报信息
      *
      * @return 结果
      */
-    public List<RainSecurity> selectRainSecList();
+    public List<Secwarn> selectRainSecList();
+
+    /**
+     * 获取所有空气质量安防警报信息
+     *
+     * @return 结果
+     */
+    public List<Secwarn> selectPmSecList();
 }

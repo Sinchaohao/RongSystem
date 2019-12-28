@@ -8,11 +8,11 @@ package com.ruoyi.iot.service;/* *
  * @开发版本：综合练习V0.1
  */
 
-import com.ruoyi.iot.domain.RainSecurity;
+import com.ruoyi.iot.domain.Secwarn;
 
 import java.util.List;
 
-public interface IRainSecService {
+public interface ISecWarnService {
 
     /**
      * 查询降雨安防警报
@@ -20,5 +20,13 @@ public interface IRainSecService {
      * @param
      * @return 降雨安防警报
      */
-    public List<RainSecurity> selectRaintSecList();
+    public List<Secwarn> selectRainSecList();
+
+    /**
+     * 查询空气质量安防警报
+     *
+     * @param
+     * @return 降雨安防警报
+     */
+    public List<Secwarn> selectPmSecList();
 }

@@ -10,7 +10,7 @@ package com.ruoyi.api.controller.iot;/* *
 
 import com.ruoyi.api.domain.RongApiRes;
 import com.ruoyi.api.service.RongApiService;
-import com.ruoyi.iot.service.IRainSecService;
+import com.ruoyi.iot.service.ISecWarnService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,18 +24,26 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/security")
 @CrossOrigin
-@Api(value = "降雨量警报")
-public class RainSec {
+@Api(value = "各类警报")
+public class Secwarning {
 
     @Autowired
-    private IRainSecService rainSecService;
+    private ISecWarnService secWarnService;
 
     @CrossOrigin
     @GetMapping("/rain")
     @ApiOperation(value = "降雨量警报")
+    public RongApiRes selectRainList(){
+        List pre = secWarnService.selectRainSecList();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
 
-    public RongApiRes selectList(){
-        List pre = rainSecService.selectRaintSecList();
+    @GetMapping("/pm")
+    @ApiOperation(value = "空气质量警报")
+
+    public RongApiRes selectPmList(){
+        List pre = secWarnService.selectPmSecList();
         RongApiRes test = RongApiService.get_list(pre);
         return test;
     }

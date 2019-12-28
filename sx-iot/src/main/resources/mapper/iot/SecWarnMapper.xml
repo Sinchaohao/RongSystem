@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.iot.mapper.SecWarnMapper">
+    <resultMap type="Secwarn" id="SecurityResult">
+        <result property="rain" column="rain" />
+        <result property="time" column="time"/>
+        <result property="pm" column="pm"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <select id="selectRainSecList" resultMap="SecurityResult">
+        select
+          rain,
+          time
+        from
+          env_data
+        where rain>0
+        order by time ASC
+    </select>
+
+    <select id="selectPmSecList" resultMap="SecurityResult">
+        select
+          pm,
+          time
+        from
+          env_data
+        where pm>0
+        order by time ASC
+    </select>
+</mapper>

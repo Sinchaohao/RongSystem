@@ -10,23 +10,29 @@ package com.ruoyi.iot.service.impl;/* *
 
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
-import com.ruoyi.iot.domain.RainSecurity;
-import com.ruoyi.iot.mapper.RainSecMapper;
-import com.ruoyi.iot.service.IRainSecService;
+import com.ruoyi.iot.domain.Secwarn;
+import com.ruoyi.iot.mapper.SecWarnMapper;
+import com.ruoyi.iot.service.ISecWarnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RainSecServiceImpl implements IRainSecService{
+public class SecWarnWarnServiceImpl implements ISecWarnService {
 
     @Autowired
-    private RainSecMapper rainSecMapper;
+    private SecWarnMapper secWarnMapper;
 
     @Override
     @DataSource(value = DataSourceType.SXIOT)
-    public List<RainSecurity> selectRaintSecList() {
-        return rainSecMapper.selectRainSecList();
+    public List<Secwarn> selectRainSecList() {
+        return secWarnMapper.selectRainSecList();
+    }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Secwarn> selectPmSecList() {
+        return secWarnMapper.selectPmSecList();
     }
 }
