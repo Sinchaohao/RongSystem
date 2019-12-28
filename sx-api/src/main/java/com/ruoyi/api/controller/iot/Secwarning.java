@@ -24,7 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/security")
 @CrossOrigin
-@Api(value = "各类警报")
+@Api(value = "各类警报可视化")
 public class Secwarning {
 
     @Autowired
@@ -32,7 +32,7 @@ public class Secwarning {
 
     @CrossOrigin
     @GetMapping("/rain")
-    @ApiOperation(value = "降雨量警报")
+    @ApiOperation(value = "降雨量警报可视化")
     public RongApiRes selectRainList(){
         List pre = secWarnService.selectRainSecList();
         RongApiRes test = RongApiService.get_list(pre);
@@ -40,7 +40,7 @@ public class Secwarning {
     }
 
     @GetMapping("/pm")
-    @ApiOperation(value = "空气质量警报")
+    @ApiOperation(value = "空气质量警报可视化")
 
     public RongApiRes selectPmList(){
         List pre = secWarnService.selectPmSecList();
@@ -48,4 +48,39 @@ public class Secwarning {
         return test;
     }
 
+    @GetMapping("/temp")
+    @ApiOperation(value = "温度警报可视化")
+
+    public RongApiRes selectTempList(){
+        List pre = secWarnService.selectTempSecList();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
+
+    @GetMapping("/wlevel")
+    @ApiOperation(value = "水位警报可视化")
+
+    public RongApiRes selectWlvlList(){
+        List pre = secWarnService.selectWlvlSecList();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
+
+    @GetMapping("/hum")
+    @ApiOperation(value = "湿度警报可视化")
+
+    public RongApiRes selectHumList(){
+        List pre = secWarnService.selectHumSecList();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
+
+    @GetMapping("/sectype")
+    @ApiOperation(value = "警报类型可视化")
+
+    public RongApiRes selectTypeList(){
+        List pre = secWarnService.selectTypeSecList();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
 }

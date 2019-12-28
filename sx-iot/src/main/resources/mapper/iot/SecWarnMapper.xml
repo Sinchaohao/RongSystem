@@ -29,4 +29,39 @@
         where pm>0
         order by time ASC
     </select>
+
+    <select id="selectTempSecList" resultMap="SecurityResult">
+        select
+          temp,
+          time
+        from
+          env_data
+        order by time ASC
+    </select>
+
+    <select id="selectWlvlSecList" resultMap="SecurityResult">
+        select
+          wlevel,
+          time
+        from
+          env_data
+        order by time ASC
+    </select>
+
+    <select id="selectHumSecList" resultMap="SecurityResult">
+        select
+          hum,
+          time
+        from
+          env_data
+        order by time ASC
+    </select>
+
+    <select id="selectTypeSecList" resultMap="SecurityResult">
+        select
+          content,
+          secnum
+        from
+          secwarning
+    </select>
 </mapper>

@@ -29,4 +29,31 @@ public interface SecWarnMapper {
      * @return 结果
      */
     public List<Secwarn> selectPmSecList();
+
+    /**
+     * 获取所有温度安防警报信息
+     *
+     * @return 结果
+     */
+    public List<Secwarn> selectTempSecList();
+
+    /**
+     * 获取所有水位安防警报信息
+     *
+     * @return 结果
+     */
+    public List<Secwarn> selectWlvlSecList();
+
+    /**
+     * 获取所有湿度安防警报信息
+     *
+     * @return 结果
+     */
+    public List<Secwarn> selectHumSecList();
+    /**
+     * 获取所有安防警报类型触发信息
+     *
+     * @return 结果
+     */
+    public List<Secwarn> selectTypeSecList();
 }
