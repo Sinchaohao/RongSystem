@@ -68,6 +68,14 @@ public class DruidConfig
     }
 
     @Bean
+    @ConfigurationProperties("spring.datasource.druid.sxsoil")
+    @ConditionalOnProperty(prefix = "spring.datasource.druid.sxsoil", name = "enabled", havingValue = "true")
+    public DataSource sx_soilDataSource()
+    {
+        return DruidDataSourceBuilder.create().build();
+    }
+
+    @Bean
     @ConfigurationProperties("spring.datasource.druid.sxbaodian")
     @ConditionalOnProperty(prefix = "spring.datasource.druid.sxbaodian", name = "enabled", havingValue = "true")
     public DataSource sx_baodianDataSource()
@@ -82,14 +90,13 @@ public class DruidConfig
     {
         return DruidDataSourceBuilder.create().build();
     }
-    //定义我组（1组）负责的物联网数据源
 
     @Bean(name = "dynamicDataSource")
     @Primary
     public DynamicDataSource dataSource(DataSource masterDataSource, DataSource slaveDataSource,
                                         DataSource sx_userDataSource, DataSource sx_infomDataSource,
                                         DataSource sx_rivervisDataSource, DataSource sx_villageDataSource,
-                                        DataSource sx_baodianDataSource, DataSource sx_iotDataSource)
+                                        DataSource sx_baodianDataSource,DataSource sx_soilDataSource)
     {
         Map<Object, Object> targetDataSources = new HashMap<>();
         targetDataSources.put(DataSourceType.MASTER.name(), masterDataSource);
@@ -99,7 +106,8 @@ public class DruidConfig
         targetDataSources.put(DataSourceType.SXRIVERVIS.name(), sx_rivervisDataSource);
         targetDataSources.put(DataSourceType.SXVILLAGE.name(), sx_villageDataSource);
         targetDataSources.put(DataSourceType.SXBAODIAN.name(), sx_baodianDataSource);
-        targetDataSources.put(DataSourceType.SXIOT.name(), sx_iotDataSource);
+        targetDataSources.put(DataSourceType.SXSOIL.name(), sx_soilDataSource);
+        targetDataSources.put(DataSourceType.SXIOT.name(), sx_soilDataSource);
         return new DynamicDataSource(masterDataSource, targetDataSources);
     }
 }

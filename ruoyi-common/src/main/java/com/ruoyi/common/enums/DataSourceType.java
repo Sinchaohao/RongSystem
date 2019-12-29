@@ -42,9 +42,12 @@ public enum DataSourceType
      */
     SXBAODIAN,
 
-    /**
-     * 从库七
-     */
-    SXIOT
+
+//    从库七 物联网数据
+    SXIOT,
+
+//从库八 土壤数据
+    SXSOIL
+
 
 }

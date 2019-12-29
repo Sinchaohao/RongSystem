@@ -145,5 +145,6 @@ public class AreaServiceImpl implements IAreaService
 	 */
 	@Override
 	@DataSource(value = DataSourceType.SLAVE)
-	public Area  selectAllArea(){return areaMapper.selectAllArea();}
+	public Area  selectAllArea()
+	{return areaMapper.selectAllArea();}
 }
