@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.iot.mapper.MetSumMapper">
+    <resultMap type="MetSum" id="MetCountResult">
+        <result property="rname" column="rname" />
+        <result property="sumhum" column="sumhum"/>
+        <result property="sumrain" column="sumrain"/>
+        <result property="hum" column="hum"/>
+    </resultMap>
+
+    <select id="selectHumMet" resultMap="MetCountResult">
+        select
+          hum,
+          count(hum)
+          as sumhum
+        from
+          env_data
+        group by hum
+    </select>
+
+    <select id="selectRainMet" resultMap="MetCountResult">
+        select
+          rname,
+          count(rname)
+          as sumrain
+        from
+          rain_data
+        group by rname
+    </select>
+</mapper>
