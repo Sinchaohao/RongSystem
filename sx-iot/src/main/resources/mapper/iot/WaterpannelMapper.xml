@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.iot.mapper.WaterpannelMapper">
+
+    <resultMap type="Waterpannel" id="WaterpannelResult">
+        <result property="id"    column="id"    />
+        <result property="aid"    column="aid"    />
+        <result property="tem"    column="tem"    />
+        <result property="ph"    column="ph"    />
+        <result property="N_data"    column="N_data"    />
+        <result property="P_data"    column="P_data"    />
+        <result property="Q_data"    column="Q_data"    />
+        <result property="S_data"    column="S_data"    />
+        <result property="Fu_data"    column="Fu_data"    />
+        <result property="Bac_data"    column="Bac_data"    />
+        <result property="sampling_by"    column="sampling_by"    />
+        <result property="sampling_time"    column="sampling_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+
+
+
+<sql id="selectWaterpannelVo">
+        select
+        id,aid,tem,ph,N_data,P_data,Q_data,S_data,Fu_data,Bac_data,sampling_by,
+        sampling_time,remark from iotdata.water_data
+    </sql>
+
+    <select id="selectWaterpannelList" parameterType="Integer" resultMap="WaterpannelResult">
+        <include refid="selectWaterpannelVo"/>
+                <where>
+                    <if test="id != null  ">id,</if>
+                    <if test="aid != null  and aid != ''  ">aid,</if>
+                    <if test="tem != null  and tem != ''  ">tem,</if>
+                    <if test="ph != null  and ph != ''  ">ph,</if>
+                    <if test="N_data != null  and N_data != ''  ">N_data,</if>
+                    <if test="P_data != null  and P_data != ''  ">P_data,</if>
+                    <if test="Q_data != null  and Q_data != ''  ">Q_data,</if>
+                    <if test="S_data != null  and S_data != ''  ">S_data,</if>
+                    <if test="Fu_data != null  and Fu_data != ''  ">Fu_data,</if>
+                    <if test="Bac_data != null  and Bac_data != ''  ">Bac_data,</if>
+                    <if test="sampling_by != null  and sampling_by != ''  ">sampling_by,</if>
+                    <if test="sampling_time != null  and sampling_time != ''  ">sampling_time,</if>
+                    and remark = 1
+                </where>
+                order by id
+    </select>
+
+    <select id="selectListById" parameterType="Integer" resultType="map">
+<!--    <include refid="selectWaterpannelVo"/>-->
+     select
+        id,aid,tem,ph,N_data,P_data,Q_data,S_data,Fu_data,Bac_data,sampling_by,
+        sampling_time,remark
+        from iotdata.water_data
+         where id=#{id}
+    </select>
+
+    <insert id="insertWaterpannel" parameterType="Waterpannel">
+        insert into water_data
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null  ">id,</if>
+            <if test="aid != null  and aid != ''  ">aid,</if>
+            <if test="tem != null  and tem != ''  ">tem,</if>
+            <if test="ph != null  and ph != ''  ">ph,</if>
+            <if test="N_data != null  and N_data != ''  ">N_data,</if>
+            <if test="P_data != null  and P_data != ''  ">P_data,</if>
+            <if test="Q_data != null  and Q_data != ''  ">Q_data,</if>
+            <if test="S_data != null  and S_data != ''  ">S_data,</if>
+            <if test="Fu_data != null  and Fu_data != ''  ">Fu_data,</if>
+            <if test="Bac_data != null  and Bac_data != ''  ">Bac_data,</if>
+            <if test="sampling_by != null  and sampling_by != ''  ">sampling_by,</if>
+            <if test="sampling_time != null  and sampling_time != ''  ">sampling_time,</if>
+            <if test="remark != null  ">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null  ">#{id},</if>
+            <if test="aid != null  and aid != ''  ">#{aid},</if>
+            <if test="tem != null  and tem != ''  ">#{tem},</if>
+            <if test="ph != null  and ph != ''  ">#{ph},</if>
+            <if test="N_data != null  and N_data != ''  ">#{N_data},</if>
+            <if test="P_data != null  and P_data != ''  ">#{P_data},</if>
+            <if test="Q_data != null  and Q_data != ''  ">#{Q_data},</if>
+            <if test="S_data != null  and S_data != ''  ">#{S_data},</if>
+            <if test="Fu_data != null  and Fu_data != ''  ">#{Fu_data},</if>
+            <if test="Bac_data != null  and Bac_data != ''  ">#{Bac_data},</if>
+            <if test="sampling_by != null  and sampling_by != ''  ">#{sampling_by},</if>
+            <if test="sampling_time != null  and sampling_time != ''  ">#{sampling_time},</if>
+            <if test="remark != null  ">#{remark},</if>
+        </trim>
+    </insert>
+
+
+</mapper>
