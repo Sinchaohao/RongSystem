@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface MemberMapper 
 {
+	public List<Member> selectbyedulevel();
 	/**
      * 查询村民基本信息
      * 

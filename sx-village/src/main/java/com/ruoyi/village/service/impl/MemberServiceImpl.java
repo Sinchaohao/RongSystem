@@ -27,6 +27,13 @@ public class MemberServiceImpl implements IMemberService
 	@Autowired
 	private MemberMapper memberMapper;
 
+
+	@Override
+	@DataSource(value = DataSourceType.SXVILLAGE)
+	public List<Member> selectbyedulevel()
+	{
+		return memberMapper.selectbyedulevel();
+	}
 	/**
      * 查询村民基本信息
      * 
