@@ -216,6 +216,13 @@ public class Vcount {
     public RongApiRes countbyedulevel(){
         return RongApiService.get_list(partymemberService.countbyedulevel());
     }
+
+    @GetMapping("/b_edulevel")
+    @CrossOrigin
+    @ApiOperation(value = "统计村民和党员文化水平数")
+    public RongApiRes selectbyedulevel(){
+        return RongApiService.get_list(memberService.selectbyedulevel());
+    }
 //    报错：类转换错误
 //    java.lang.ClassCastException: java.util.HashMap cannot be cast to com.ruoyi.common.utils.PageData
 //    不知为何PageData实现了Map接口，却无法使用override的get(Object key)和getString(Object key)方法
