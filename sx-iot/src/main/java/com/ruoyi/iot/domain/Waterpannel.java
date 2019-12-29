@@ -1,9 +1,9 @@
-package com.ruoyi.iot.domain;
+ package com.ruoyi.iot.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.base.BaseEntity;
-import java.util.Date;
+ import java.util.Date;
 
 /**
  * 终端运转表 torrent
@@ -12,7 +12,7 @@ import java.util.Date;
  * @date 2019-03-03
  */
 
-  public class  Waterpannel extends BaseEntity {
+  public class Waterpannel extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 

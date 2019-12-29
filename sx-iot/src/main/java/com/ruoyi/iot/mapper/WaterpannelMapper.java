@@ -1,4 +1,4 @@
-package com.ruoyi.iot.mapper;
+ package com.ruoyi.iot.mapper;
 
 import com.ruoyi.iot.domain.Torrent;
 import com.ruoyi.iot.domain.Waterpannel;
@@ -26,7 +26,7 @@ public interface WaterpannelMapper {
      * @param id 水质数据ID
      * @return 水质数据信息
      */
-    public  List<Map<String,Object>> selectListById(@Param("id") Integer id);
+    public List<Map<String,Object>> selectListById(@Param("id") Integer id);
 
     //public int insertWaterpannel(Waterpannel waterpannel);
 

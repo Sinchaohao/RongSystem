@@ -1,4 +1,4 @@
-package com.ruoyi.iot.service;
+ package com.ruoyi.iot.service;
 
 import com.ruoyi.iot.domain.Waterpannel;
 import org.apache.ibatis.annotations.Param;
@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import java.util.Map;
 
-  public interface IWaterpannelService {
+public interface IWaterpannelService {
 
     /**
      * 查询所有水质数据

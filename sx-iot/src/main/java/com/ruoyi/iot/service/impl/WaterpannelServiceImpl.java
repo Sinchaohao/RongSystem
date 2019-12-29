@@ -1,4 +1,4 @@
-package com.ruoyi.iot.service.impl;
+ package com.ruoyi.iot.service.impl;
 
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
