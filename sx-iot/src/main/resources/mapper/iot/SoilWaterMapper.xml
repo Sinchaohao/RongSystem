@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.iot.mapper.SoilWaterMapper">
+
+    <resultMap type="SoilWater" id="SoilWaterResult">
+        <result property="dname" column="dname"/>
+        <result property="water" column="water"/>
+        <result property="date" column="date"/>
+        <result property="where" column="where"/>
+
+    </resultMap>
+    <select id="select" resultMap="SoilWaterResult">
+select date,water from tb_water
+order by date
+    </select>
+
+</mapper>
