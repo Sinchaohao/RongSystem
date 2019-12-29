@@ -23,7 +23,7 @@
 
 
 
-<sql id="selectWaterpannelVo">
+  <sql id="selectWaterpannelVo">
         select
         id,aid,tem,ph,N_data,P_data,Q_data,S_data,Fu_data,Bac_data,sampling_by,
         sampling_time,remark from iotdata.water_data
@@ -49,7 +49,7 @@
                 order by id
     </select>
 
-    <select id="selectListById" parameterType="Integer" resultType="map">
+      <select id="selectListById" parameterType="Integer" resultType="map">
 <!--    <include refid="selectWaterpannelVo"/>-->
      select
         id,aid,tem,ph,N_data,P_data,Q_data,S_data,Fu_data,Bac_data,sampling_by,

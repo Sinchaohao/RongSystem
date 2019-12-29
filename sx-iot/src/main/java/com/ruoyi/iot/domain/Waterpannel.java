@@ -12,7 +12,7 @@ import java.util.Date;
  * @date 2019-03-03
  */
 
-public class Waterpannel extends BaseEntity {
+  public class  Waterpannel extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 

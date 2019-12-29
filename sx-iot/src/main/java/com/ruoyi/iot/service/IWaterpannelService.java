@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import java.util.Map;
 
-public interface IWaterpannelService {
+  public interface IWaterpannelService {
 
     /**
      * 查询所有水质数据
@@ -22,7 +22,7 @@ public interface IWaterpannelService {
      * @param id 水质数据ID
      * @return 水质数据信息
      */
-    public List<Map<String,Object>> selectListById(@Param("id")Integer id);
+    public  List<Map<String,Object>> selectListById(@Param("id")Integer id);
 
     /**
      * 新增水质监测

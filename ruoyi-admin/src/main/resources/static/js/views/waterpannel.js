@@ -1,4 +1,4 @@
-function waterload() {
+function  waterload() {
     //首页图表 水质全部可视化
     //init_waters()
 }

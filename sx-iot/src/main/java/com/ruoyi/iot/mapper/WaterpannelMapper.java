@@ -18,7 +18,7 @@ public interface WaterpannelMapper {
      * @param
      *
      */
-    public List<Waterpannel> selectWaterpannelList();
+    public  List<Waterpannel> selectWaterpannelList();
 
     /**
      * 查询水质数据信息
@@ -26,7 +26,7 @@ public interface WaterpannelMapper {
      * @param id 水质数据ID
      * @return 水质数据信息
      */
-    public List<Map<String,Object>> selectListById(@Param("id") Integer id);
+    public  List<Map<String,Object>> selectListById(@Param("id") Integer id);
 
     //public int insertWaterpannel(Waterpannel waterpannel);
 

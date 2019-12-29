@@ -46,7 +46,7 @@ public class WaterPannelController extends BaseController {
     public TableDataInfo List() {
         startPage();
         List<Waterpannel> list =waterpannelService.selectWaterpannelList();
-        return getDataTable(list);
+         return getDataTable(list);
     }
 
     @PostMapping ("/list")

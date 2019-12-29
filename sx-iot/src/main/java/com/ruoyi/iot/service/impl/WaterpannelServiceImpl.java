@@ -39,7 +39,7 @@ public class WaterpannelServiceImpl implements IWaterpannelService{
      */
 
     @DataSource(value = DataSourceType.SXIOT)
-    public List<Map<String,Object>> selectListById(Integer id)
+      public List<Map<String,Object>> selectListById(Integer id)
     {
         return waterpannelMapper.selectListById(id);
     }
