@@ -11,8 +11,8 @@ public interface IWaterpannelService {
     /**
      * 查询所有水质数据
      *
-     * @param
-     *
+
+
      */
     public List<Waterpannel> selectWaterpannelList();
 

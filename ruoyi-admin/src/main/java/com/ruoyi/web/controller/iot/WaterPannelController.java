@@ -33,7 +33,7 @@ public class WaterPannelController extends BaseController {
    //private WaterpannelServiceImpl waterpannelServiceImpl;
 
     @GetMapping()
-    public String water() {
+    public   String water() {
         return prefix + "/waterpannel";
     }
 

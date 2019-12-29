@@ -1,4 +1,4 @@
-function  waterload() {
+function   waterload() {
     //首页图表 水质全部可视化
     //init_waters()
 }
@@ -19,18 +19,7 @@ function  waterload() {
 //             var hum = new Array();
 //             var common_time = new Array();
 //
-//             // 遍历服务器数据显示到页面
-//
-//             for (i in pre_data){
-//                 rain.push(pre_data[i].rain);
-//                 flow.push(pre_data[i].flow);
-//                 wlevel.push(pre_data[i].wlevel);
-//                 ph.push(pre_data[i].ph);
-//                 pm.push(pre_data[i].pm);
-//                 temp.push(pre_data[i].temp);
-//                 hum.push(pre_data[i].hum);
-//                 common_time.push(pre_data[i].time);
-//             }
+
 //         }
 //     )
 //

@@ -14,14 +14,14 @@ import java.util.Map;
 
 
 @Service
-public class WaterpannelServiceImpl implements IWaterpannelService{
+public class  WaterpannelServiceImpl implements IWaterpannelService{
 
     @Autowired
     private WaterpannelMapper waterpannelMapper;
 
         /**
          * 查询所有水质数据
-         *
+
          * @param
          * @return
          */

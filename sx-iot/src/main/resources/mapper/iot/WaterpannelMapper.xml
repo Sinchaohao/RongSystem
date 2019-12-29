@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
  <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ruoyi.iot.mapper.WaterpannelMapper">
 
@@ -50,7 +50,7 @@
     </select>
 
       <select id="selectListById" parameterType="Integer" resultType="map">
-<!--    <include refid="selectWaterpannelVo"/>-->
+
      select
         id,aid,tem,ph,N_data,P_data,Q_data,S_data,Fu_data,Bac_data,sampling_by,
         sampling_time,remark

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Mapper
-public interface WaterpannelMapper {
+public  interface WaterpannelMapper {
 
     /**
      * 查询所有水质数据记录
@@ -18,7 +18,7 @@ public interface WaterpannelMapper {
      * @param
      *
      */
-    public  List<Waterpannel> selectWaterpannelList();
+    public List<Waterpannel> selectWaterpannelList();
 
     /**
      * 查询水质数据信息
@@ -26,7 +26,7 @@ public interface WaterpannelMapper {
      * @param id 水质数据ID
      * @return 水质数据信息
      */
-    public List<Map<String,Object>> selectListById(@Param("id") Integer id);
+    public  List<Map<String,Object>> selectListById(@Param("id") Integer id);
 
     //public int insertWaterpannel(Waterpannel waterpannel);
 
