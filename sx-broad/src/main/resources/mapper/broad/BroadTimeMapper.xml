@@ -24,11 +24,11 @@
     <select id="selectListByDate" resultMap="BroadTimeResult">
         select
           broaddate,
-          count(broaddate) as bcount
+          count(scategory)as bcount
         from
           pro_sinmanage
-        group by broaddate
-        order by count(broaddate) DESC
+        group by scategory
+        order by broaddate desc
         limit 30
     </select>
 
