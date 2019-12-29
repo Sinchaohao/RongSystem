@@ -32,9 +32,28 @@
 <div class="row  border-bottom  dashboard-header">
     <div class="wrapper wrapper-content">
         <div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>各湿度地区数</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_hummet()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="hummet"></div>
+                    </div>
+                </div>
+            </div>
             <div class="col-xs-12 select-table table-striped">
                 <div class="ibox float-e-margins">
-                    <h5>气象信息 </h5>
+                    <h5>温度信息 </h5>
                     <div class="ibox-content">
                         <table id="bootstrap-table" data-mobile-responsive="true"></table>
                     </div>
@@ -57,18 +76,18 @@
             search: false,
             columns: [
                 {
-                    field: 'rid',
-                    title: '序号',
-                    visible: true
-                },
-                {
                     field: 'rname',
                     title: '地区',
                     sortable: true
                 },
                 {
                     field: 'rdata',
-                    title: '下雨日期',
+                    title: '温度',
+                    sortable: true
+                },
+                {
+                    field: 'rtime',
+                    title: '测量时间',
                     sortable: true
                 }]
         };
