@@ -28,6 +28,13 @@ public  interface WaterpannelMapper {
      */
     public  List<Map<String,Object>> selectListById(@Param("id") Integer id);
 
+    /**
+     * 查询水质数据信息
+     *
+     * @param aid 地区ID
+     * @return 水质数据信息
+     */
+    public  List<Map<String,Object>> selectListByAId(@Param("aid") String aid);
     //public int insertWaterpannel(Waterpannel waterpannel);
 
     //public int updateWaterpannel(Waterpannel waterpannel);

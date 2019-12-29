@@ -26,27 +26,15 @@
   <sql id="selectWaterpannelVo">
         select
         id,aid,tem,ph,N_data,P_data,Q_data,S_data,Fu_data,Bac_data,sampling_by,
-        sampling_time,remark from iotdata.water_data
+        sampling_time,remark from water_data
     </sql>
 
-    <select id="selectWaterpannelList" parameterType="Integer" resultMap="WaterpannelResult">
-        <include refid="selectWaterpannelVo"/>
-                <where>
-                    <if test="id != null  ">id,</if>
-                    <if test="aid != null  and aid != ''  ">aid,</if>
-                    <if test="tem != null  and tem != ''  ">tem,</if>
-                    <if test="ph != null  and ph != ''  ">ph,</if>
-                    <if test="N_data != null  and N_data != ''  ">N_data,</if>
-                    <if test="P_data != null  and P_data != ''  ">P_data,</if>
-                    <if test="Q_data != null  and Q_data != ''  ">Q_data,</if>
-                    <if test="S_data != null  and S_data != ''  ">S_data,</if>
-                    <if test="Fu_data != null  and Fu_data != ''  ">Fu_data,</if>
-                    <if test="Bac_data != null  and Bac_data != ''  ">Bac_data,</if>
-                    <if test="sampling_by != null  and sampling_by != ''  ">sampling_by,</if>
-                    <if test="sampling_time != null  and sampling_time != ''  ">sampling_time,</if>
-                    and remark = 1
-                </where>
-                order by id
+    <select id="selectWaterpannelList" resultMap="WaterpannelResult">
+        select
+        id,aid,tem,ph,N_data,P_data,Q_data,S_data,Fu_data,Bac_data,sampling_by,
+        sampling_time,remark from water_data
+       order by id
+
     </select>
 
       <select id="selectListById" parameterType="Integer" resultType="map">
@@ -58,39 +46,48 @@
          where id=#{id}
     </select>
 
-    <insert id="insertWaterpannel" parameterType="Waterpannel">
-        insert into water_data
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null  ">id,</if>
-            <if test="aid != null  and aid != ''  ">aid,</if>
-            <if test="tem != null  and tem != ''  ">tem,</if>
-            <if test="ph != null  and ph != ''  ">ph,</if>
-            <if test="N_data != null  and N_data != ''  ">N_data,</if>
-            <if test="P_data != null  and P_data != ''  ">P_data,</if>
-            <if test="Q_data != null  and Q_data != ''  ">Q_data,</if>
-            <if test="S_data != null  and S_data != ''  ">S_data,</if>
-            <if test="Fu_data != null  and Fu_data != ''  ">Fu_data,</if>
-            <if test="Bac_data != null  and Bac_data != ''  ">Bac_data,</if>
-            <if test="sampling_by != null  and sampling_by != ''  ">sampling_by,</if>
-            <if test="sampling_time != null  and sampling_time != ''  ">sampling_time,</if>
-            <if test="remark != null  ">remark,</if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null  ">#{id},</if>
-            <if test="aid != null  and aid != ''  ">#{aid},</if>
-            <if test="tem != null  and tem != ''  ">#{tem},</if>
-            <if test="ph != null  and ph != ''  ">#{ph},</if>
-            <if test="N_data != null  and N_data != ''  ">#{N_data},</if>
-            <if test="P_data != null  and P_data != ''  ">#{P_data},</if>
-            <if test="Q_data != null  and Q_data != ''  ">#{Q_data},</if>
-            <if test="S_data != null  and S_data != ''  ">#{S_data},</if>
-            <if test="Fu_data != null  and Fu_data != ''  ">#{Fu_data},</if>
-            <if test="Bac_data != null  and Bac_data != ''  ">#{Bac_data},</if>
-            <if test="sampling_by != null  and sampling_by != ''  ">#{sampling_by},</if>
-            <if test="sampling_time != null  and sampling_time != ''  ">#{sampling_time},</if>
-            <if test="remark != null  ">#{remark},</if>
-        </trim>
-    </insert>
+    <select id="selectListByAId" parameterType="String" resultType="map">
+
+     select
+        id,aid,tem,ph,N_data,P_data,Q_data,S_data,Fu_data,Bac_data,sampling_by,
+        sampling_time,remark
+        from water_data
+         where aid=#{aid}
+    </select>
+
+<!--    <insert id="insertWaterpannel" parameterType="Waterpannel">-->
+<!--        insert into water_data-->
+<!--        <trim prefix="(" suffix=")" suffixOverrides=",">-->
+<!--            <if test="id != null  ">id,</if>-->
+<!--            <if test="aid != null  and aid != ''  ">aid,</if>-->
+<!--            <if test="tem != null  and tem != ''  ">tem,</if>-->
+<!--            <if test="ph != null  and ph != ''  ">ph,</if>-->
+<!--            <if test="N_data != null  and N_data != ''  ">N_data,</if>-->
+<!--            <if test="P_data != null  and P_data != ''  ">P_data,</if>-->
+<!--            <if test="Q_data != null  and Q_data != ''  ">Q_data,</if>-->
+<!--            <if test="S_data != null  and S_data != ''  ">S_data,</if>-->
+<!--            <if test="Fu_data != null  and Fu_data != ''  ">Fu_data,</if>-->
+<!--            <if test="Bac_data != null  and Bac_data != ''  ">Bac_data,</if>-->
+<!--            <if test="sampling_by != null  and sampling_by != ''  ">sampling_by,</if>-->
+<!--            <if test="sampling_time != null  and sampling_time != ''  ">sampling_time,</if>-->
+<!--            <if test="remark != null  ">remark,</if>-->
+<!--        </trim>-->
+<!--        <trim prefix="values (" suffix=")" suffixOverrides=",">-->
+<!--            <if test="id != null  ">#{id},</if>-->
+<!--            <if test="aid != null  and aid != ''  ">#{aid},</if>-->
+<!--            <if test="tem != null  and tem != ''  ">#{tem},</if>-->
+<!--            <if test="ph != null  and ph != ''  ">#{ph},</if>-->
+<!--            <if test="N_data != null  and N_data != ''  ">#{N_data},</if>-->
+<!--            <if test="P_data != null  and P_data != ''  ">#{P_data},</if>-->
+<!--            <if test="Q_data != null  and Q_data != ''  ">#{Q_data},</if>-->
+<!--            <if test="S_data != null  and S_data != ''  ">#{S_data},</if>-->
+<!--            <if test="Fu_data != null  and Fu_data != ''  ">#{Fu_data},</if>-->
+<!--            <if test="Bac_data != null  and Bac_data != ''  ">#{Bac_data},</if>-->
+<!--            <if test="sampling_by != null  and sampling_by != ''  ">#{sampling_by},</if>-->
+<!--            <if test="sampling_time != null  and sampling_time != ''  ">#{sampling_time},</if>-->
+<!--            <if test="remark != null  ">#{remark},</if>-->
+<!--        </trim>-->
+<!--    </insert>-->
 
 
 </mapper>

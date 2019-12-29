@@ -43,9 +43,6 @@ import com.ruoyi.common.base.BaseEntity;
 
     private String remark;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Integer getId() {
         return id;

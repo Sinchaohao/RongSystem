@@ -28,8 +28,7 @@ public class WaterPannelController extends BaseController {
 
     @Autowired
 
-    private IWaterpannelService waterpannelService;
-
+    private WaterpannelServiceImpl waterpannelService;
    //private WaterpannelServiceImpl waterpannelServiceImpl;
 
     @GetMapping()
@@ -53,6 +52,12 @@ public class WaterPannelController extends BaseController {
     public String selectListById(Model model,@RequestParam("id") Integer id){
         model.addAttribute("data",waterpannelService.selectListById(id));
         return "iot/waterpannel/wselect";
+    }
+
+    @PostMapping ("/select")
+    public String selectListByAId(Model model,@RequestParam("aid") String aid){
+        model.addAttribute("adata",waterpannelService.selectListByAId(aid));
+        return "iot/waterpannel/wselectbyaid";
     }
 
 //    @GetMapping("/add")

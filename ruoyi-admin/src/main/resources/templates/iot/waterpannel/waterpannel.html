@@ -132,78 +132,65 @@
 <script th:src="@{/ajax/libs/jquery-ztree/3.5/js/jquery.ztree.all-3.5.js}"></script>
 <script th:inline="javascript">
 
-    //分页查询
+
+
     function select() {
         var options = {
             url: "/iot/waterpannel/view",
-
             search: false,
-            columns: [
+            showExport: true,
+            columns: [{
+                field : 'id',
+                title : '水质数据id',
+            },
                 {
-                    field: 'id',
-                    title: '水质数据id',
-                    visible: true
+                    field : 'aid',
+                    title : '地区id',
                 },
                 {
-                    field: 'aid',
-                    title: '地区id',
-                    sortable: true
+                    field : 'tem',
+                    title : '水温',
                 },
                 {
-                    field: 'tem',
-                    title: '水温',
-                    sortable: true
-                },
-                 {
-                     field: 'ph',
-                         title: '酸碱度',
-                     sortable: true
-                 },
-                {
-                    field: 'N_data',
-                    title: '总氮含量',
-                    sortable: true
+                    field : 'ph',
+                    title : '酸碱度值',
                 },
                 {
-                    field: 'P_data',
-                    title: '总磷含量',
-                    sortable: true
+                    field : 'N_data',
+                    title : '总氮含量',
                 },
                 {
-                    field: 'Q_data',
-                    title: '氰化物含量',
-                    sortable: true
+                    field : 'P_data',
+                    title : '总磷含量',
                 },
                 {
-                    field: 'S_data',
-                    title: '硫化物含量',
-                    sortable: true
+                    field : 'Q_data',
+                    title : '氰化物含量',
                 },
                 {
-                    field: 'Fu_data',
-                    title: '氟化物含量',
-                    sortable: true
+                    field : 'S_data',
+                    title : '硫化物含量',
                 },
                 {
-                    field: 'Bac_data',
-                    title: '大肠杆菌含量',
-                    sortable: true
+                    field : 'Fu_data',
+                    title : '氟化物含量',
                 },
                 {
-                    field: 'sampling_by',
-                    title: '水质数据采集人员',
-                    sortable: true
+                    field : 'Bac_data',
+                    title : '大肠杆菌含量',
                 },
                 {
-                    field: 'sampling_time',
-                    title: '水质数据采集时间',
-                    sortable: true
+                    field : 'sampling_by',
+                    title : '数据采集人员',
                 },
                 {
-                    field: 'remark',
-                    title: '是否有效',
-                    sortable: true
-                }]//警报类型的字段类型之前是text，不匹配，修改为varchar
+                    field : 'sampling_time',
+                    title : '数据采集时间',
+                },
+                {
+                    field : 'remark',
+                    title : '是否有效',
+                }]
         };
         $.table.init(options);
     };
@@ -239,6 +226,16 @@
         <form action="/iot/waterpannel/list" method="post">
             编号：<input type="Integer" name="id" /></br>
             <input type="submit" value="id查询" />
+        </form>
+    </td>
+</tr>
+
+<h1>根据地区id查询水质数据信息</h1>
+<tr>
+    <td>
+        <form action="/iot/waterpannel/select" method="post">
+            编号：<input type="String" name="id" /></br>
+            <input type="submit" value="地区id查询" />
         </form>
     </td>
 </tr>

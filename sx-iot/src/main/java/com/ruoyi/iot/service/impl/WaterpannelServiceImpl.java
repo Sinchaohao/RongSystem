@@ -44,6 +44,19 @@ public class  WaterpannelServiceImpl implements IWaterpannelService{
         return waterpannelMapper.selectListById(id);
     }
 
+    /**
+     * 查询水质数据信息
+     *
+     * @param aid 地区ID
+     * @return 水质数据信息
+     */
+
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Map<String,Object>> selectListByAId(String aid)
+    {
+        return waterpannelMapper.selectListByAId(aid);
+    }
+
 
     /**
      * 新增水质监测
