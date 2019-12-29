@@ -13,17 +13,10 @@ public class MetCount extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    private String rid;
     private String rname;
+    private String rtime;
     private String rdata;
 
-    public String getRid() {
-        return rid;
-    }
-
-    public void setRid(String rid) {
-        this.rid = rid;
-    }
 
     public String getRname() {
         return rname;
@@ -33,6 +26,14 @@ public class MetCount extends BaseEntity {
         this.rname = rname;
     }
 
+    public String getRtime() {
+        return rtime;
+    }
+
+    public void setRtime(String rtime) {
+        this.rtime = rtime;
+    }
+
     public String getRdata() {
         return rdata;
     }
@@ -40,10 +41,11 @@ public class MetCount extends BaseEntity {
     public void setRdata(String rdata) {
         this.rdata = rdata;
     }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("rid", getRid())
+                .append("rtime", getRtime())
                 .append("rname", getRname())
                 .append("rdata",getRdata())
                 .toString();
