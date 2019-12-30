@@ -3,6 +3,7 @@ package com.ruoyi.web.controller.iot;
 import com.ruoyi.common.page.TableDataInfo;
 import com.ruoyi.framework.web.base.BaseController;
 import com.ruoyi.iot.domain.MetCount;
+import com.ruoyi.iot.domain.SoilDevice;
 import com.ruoyi.iot.domain.Soilusetype;
 import com.ruoyi.iot.service.ISoiluseTypeService;
 import com.ruoyi.iot.service.impl.SoilDeviceServiceImpl;
@@ -76,6 +77,14 @@ public class SoilPannelController extends BaseController {
         }
         model.addAttribute("device", soilDeviceServiceImpl.selectbyname(dname));
         return prefix+ "/SoilDeviceManage";
+    }
+    @PostMapping("/listdevice")
+    @ResponseBody
+    public TableDataInfo listdevice()
+    {
+        startPage();
+        List <SoilDevice> list= soilDeviceServiceImpl.selectall();
+        return getDataTable(list);
     }
 
 }
