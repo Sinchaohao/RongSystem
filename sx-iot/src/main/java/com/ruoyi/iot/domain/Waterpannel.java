@@ -16,7 +16,6 @@ import com.ruoyi.common.base.BaseEntity;
 
     private static final long serialVersionUID = 1L;
 
-
     private Integer id;
 
     private String aid;
@@ -25,24 +24,23 @@ import com.ruoyi.common.base.BaseEntity;
 
     private String ph;
 
-    private String N_data;
+    private String ndata;
 
-    private String P_data;
+    private String pdata;
 
-    private String Q_data;
+    private String qdata;
 
-    private String S_data;
+    private String sdata;
 
-    private String Fu_data;
+    private String fudata;
 
-    private String Bac_data;
+    private String bacdata;
 
     private String sampling_by;
 
     private Date sampling_time;
 
     private String remark;
-
 
     public Integer getId() {
         return id;
@@ -76,52 +74,52 @@ import com.ruoyi.common.base.BaseEntity;
         this.ph = ph;
     }
 
-    public String getN_data() {
-        return N_data;
+    public String getNdata() {
+        return ndata;
     }
 
-    public void setN_data(String n_data) {
-        N_data = n_data;
+    public void setNdata(String ndata) {
+        this.ndata = ndata;
     }
 
-    public String getP_data() {
-        return P_data;
+    public String getPdata() {
+        return pdata;
     }
 
-    public void setP_data(String p_data) {
-        P_data = p_data;
+    public void setPdata(String pdata) {
+        this.pdata = pdata;
     }
 
-    public String getQ_data() {
-        return Q_data;
+    public String getQdata() {
+        return qdata;
     }
 
-    public void setQ_data(String q_data) {
-        Q_data = q_data;
+    public void setQdata(String qdata) {
+        this.qdata = qdata;
     }
 
-    public String getS_data() {
-        return S_data;
+    public String getSdata() {
+        return sdata;
     }
 
-    public void setS_data(String s_data) {
-        S_data = s_data;
+    public void setSdata(String sdata) {
+        this.sdata = sdata;
     }
 
-    public String getFu_data() {
-        return Fu_data;
+    public String getFudata() {
+        return fudata;
     }
 
-    public void setFu_data(String fu_data) {
-        Fu_data = fu_data;
+    public void setFudata(String fudata) {
+        this.fudata = fudata;
     }
 
-    public String getBac_data() {
-        return Bac_data;
+    public String getBacdata() {
+        return bacdata;
     }
 
-    public void setBac_data(String bac_data) {
-        Bac_data = bac_data;
+    public void setBacdata(String bacdata) {
+        this.bacdata = bacdata;
     }
 
     public String getSampling_by() {
@@ -145,6 +143,7 @@ import com.ruoyi.common.base.BaseEntity;
         return remark;
     }
 
+    @Override
     public void setRemark(String remark) {
         this.remark = remark;
     }
@@ -156,12 +155,12 @@ import com.ruoyi.common.base.BaseEntity;
                 ", aid='" + aid + '\'' +
                 ", tem='" + tem + '\'' +
                 ", ph='" + ph + '\'' +
-                ", N_data='" + N_data + '\'' +
-                ", P_data='" + P_data + '\'' +
-                ", Q_data='" + Q_data + '\'' +
-                ", S_data='" + S_data + '\'' +
-                ", Fu_data='" + Fu_data + '\'' +
-                ", Bac_data='" + Bac_data + '\'' +
+                ", ndata='" + ndata + '\'' +
+                ", pdata='" + pdata + '\'' +
+                ", qdata='" + qdata + '\'' +
+                ", sdata='" + sdata + '\'' +
+                ", fudata='" + fudata + '\'' +
+                ", bacdata='" + bacdata + '\'' +
                 ", sampling_by='" + sampling_by + '\'' +
                 ", sampling_time=" + sampling_time +
                 ", remark='" + remark + '\'' +

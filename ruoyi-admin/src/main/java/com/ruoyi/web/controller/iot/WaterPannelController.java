@@ -17,8 +17,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -27,7 +31,6 @@ public class WaterPannelController extends BaseController {
     private String prefix = "iot/waterpannel";
 
     @Autowired
-
     private WaterpannelServiceImpl waterpannelService;
    //private WaterpannelServiceImpl waterpannelServiceImpl;
 
@@ -54,11 +57,16 @@ public class WaterPannelController extends BaseController {
         return "iot/waterpannel/wselect";
     }
 
-    @PostMapping ("/select")
-    public String selectListByAId(Model model,@RequestParam("aid") String aid){
-        model.addAttribute("adata",waterpannelService.selectListByAId(aid));
-        return "iot/waterpannel/wselectbyaid";
+
+
+    @PostMapping ("/delete")
+    public String deleteListById(Model model,@RequestParam("id") Integer id){
+        model.addAttribute("dedata",waterpannelService.deleteListById(id));
+        return "iot/waterpannel/wdelete";
     }
+
+
+
 
 //    @GetMapping("/add")
 //    public String add()

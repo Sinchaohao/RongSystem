@@ -1,5 +1,7 @@
  package com.ruoyi.iot.mapper;
 
+import com.ruoyi.common.annotation.DataSource;
+import com.ruoyi.common.enums.DataSourceType;
 import com.ruoyi.iot.domain.Torrent;
 import com.ruoyi.iot.domain.Waterpannel;
 import org.apache.ibatis.annotations.Mapper;
@@ -21,30 +23,27 @@ public  interface WaterpannelMapper {
     public List<Waterpannel> selectWaterpannelList();
 
     /**
-     * 查询水质数据信息
+     * 根据id查询水质数据信息
      *
      * @param id 水质数据ID
      * @return 水质数据信息
      */
     public  List<Map<String,Object>> selectListById(@Param("id") Integer id);
 
+
+
+
     /**
-     * 查询水质数据信息
+     * 删除水质数据信息
      *
-     * @param aid 地区ID
+     * @param  id   水质数据ID
      * @return 水质数据信息
      */
-    public  List<Map<String,Object>> selectListByAId(@Param("aid") String aid);
-    //public int insertWaterpannel(Waterpannel waterpannel);
 
-    //public int updateWaterpannel(Waterpannel waterpannel);
+    public List<Map<String,Object>> deleteListById(Integer id);
 
-    /**
-     * 查询水质监测列表
-     *
-     * @param waterpannel 水质监测信息
-     * @return 环境监测集合
-     */
-    //public List<Waterpannel> selectWaterpannelList(Waterpannel waterpannel);
+
+
+
 
 }

@@ -37,91 +37,98 @@
                     <div class="ibox-title">
                         <h5>水质数据 - 水温(℃)</h5>
                     </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>水质数据 - ph</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>水质数据 - 总氮含量(mg/L)</h5>
+                    <div class="ibox-tools">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-superpowers"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a onclick="init_water_tem()">水温</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="ibox-content">
-                        <div class="echarts" id=""></div>
+                        <div class="echarts" id="water_tem"></div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>水质数据 - 总磷含量(mg/L)</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>水质数据 - 氰化物含量(mg/L)</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>水质数据 - 硫化物含量(mg/L)</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>水质数据 - 氟化物含量(mg/L)</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>水质数据 - 大肠杆菌数量(个/L)</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id=""></div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-xs-12 select-table table-striped">
-                <div class="ibox float-e-margins">
-                    <h5>水质信息</h5>
-                    <div class="ibox-content">
-                        <table id="bootstrap-table" data-mobile-responsive="true"></table>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--            </div>-->
+<!--            <div class="col-sm-3">-->
+<!--                <div class="ibox float-e-margins">-->
+<!--                    <div class="ibox-title">-->
+<!--                        <h5>水质数据 - ph</h5>-->
+<!--                    </div>-->
+<!--                    <div class="ibox-content">-->
+<!--                        <div class="echarts" id=""></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-sm-3">-->
+<!--                <div class="ibox float-e-margins">-->
+<!--                    <div class="ibox-title">-->
+<!--                        <h5>水质数据 - 总氮含量(mg/L)</h5>-->
+<!--                    </div>-->
+<!--                    <div class="ibox-content">-->
+<!--                        <div class="echarts" id=""></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-sm-3">-->
+<!--                <div class="ibox float-e-margins">-->
+<!--                    <div class="ibox-title">-->
+<!--                        <h5>水质数据 - 总磷含量(mg/L)</h5>-->
+<!--                    </div>-->
+<!--                    <div class="ibox-content">-->
+<!--                        <div class="echarts" id=""></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-sm-3">-->
+<!--                <div class="ibox float-e-margins">-->
+<!--                    <div class="ibox-title">-->
+<!--                        <h5>水质数据 - 氰化物含量(mg/L)</h5>-->
+<!--                    </div>-->
+<!--                    <div class="ibox-content">-->
+<!--                        <div class="echarts" id=""></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-sm-3">-->
+<!--                <div class="ibox float-e-margins">-->
+<!--                    <div class="ibox-title">-->
+<!--                        <h5>水质数据 - 硫化物含量(mg/L)</h5>-->
+<!--                    </div>-->
+<!--                    <div class="ibox-content">-->
+<!--                        <div class="echarts" id=""></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-sm-3">-->
+<!--                <div class="ibox float-e-margins">-->
+<!--                    <div class="ibox-title">-->
+<!--                        <h5>水质数据 - 氟化物含量(mg/L)</h5>-->
+<!--                    </div>-->
+<!--                    <div class="ibox-content">-->
+<!--                        <div class="echarts" id=""></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-sm-3">-->
+<!--                <div class="ibox float-e-margins">-->
+<!--                    <div class="ibox-title">-->
+<!--                        <h5>水质数据 - 大肠杆菌数量(个/L)</h5>-->
+<!--                    </div>-->
+<!--                    <div class="ibox-content">-->
+<!--                        <div class="echarts" id=""></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
 
     </div>
 </div>
@@ -142,7 +149,7 @@
             columns: [{
                 field : 'id',
                 title : '水质数据id',
-            },
+                },
                 {
                     field : 'aid',
                     title : '地区id',
@@ -156,27 +163,27 @@
                     title : '酸碱度值',
                 },
                 {
-                    field : 'N_data',
+                    field : 'ndata',
                     title : '总氮含量',
                 },
                 {
-                    field : 'P_data',
+                    field : 'pdata',
                     title : '总磷含量',
                 },
                 {
-                    field : 'Q_data',
+                    field : 'qdata',
                     title : '氰化物含量',
                 },
                 {
-                    field : 'S_data',
+                    field : 'sdata',
                     title : '硫化物含量',
                 },
                 {
-                    field : 'Fu_data',
+                    field : 'fudata',
                     title : '氟化物含量',
                 },
                 {
-                    field : 'Bac_data',
+                    field : 'bacdata',
                     title : '大肠杆菌含量',
                 },
                 {
@@ -230,15 +237,51 @@
     </td>
 </tr>
 
-<h1>根据地区id查询水质数据信息</h1>
+<!--<tr>-->
+<!--    <td>-->
+<!--        <form action="/iot/waterpannel/view" method="post">-->
+<!--            编号：<input value="请输入搜索内容" onfocus="javascript:this.value=''" type="text" id="ipt1" />-->
+<!--            <input value="提交" type="Submit" id="btn1" onclick="checkform()" />-->
+<!--            <script type="text/javascript">-->
+<!--                function checkform(){-->
+<!--                    if(document.getElementById('ipt1').value.length==0){-->
+<!--                        alert('输入为空！');-->
+<!--                        document.getElementById('ipt1').focus();-->
+<!--                        return false;-->
+<!--                    }-->
+<!--                    if(document.getElementById('ipt1').value=="请输入搜索内容"){-->
+<!--                        alert('输入为空！');-->
+<!--                        document.getElementById('ipt1').focus();-->
+<!--                        return false;-->
+<!--                    }-->
+<!--                }-->
+<!--            </script>-->
+<!--        </form>-->
+<!--    </td>-->
+<!--</tr>-->
+
+
+<h1>根据id删除水质数据信息</h1>
 <tr>
     <td>
         <form action="/iot/waterpannel/select" method="post">
-            编号：<input type="String" name="id" /></br>
-            <input type="submit" value="地区id查询" />
+            编号：<input type="Integer" name="id" /></br>
+            <input type="submit" value="id删除" />
         </form>
     </td>
 </tr>
+
+
+
+<!--<h1>根据id删除水质数据信息</h1>-->
+<!--<tr>-->
+<!--    <td>-->
+<!--        <form action="/iot/waterpannel/delete" method="post">-->
+<!--            编号：<input type="Integer" name="id" /></br>-->
+<!--            <input type="submit" value="id删除" />-->
+<!--        </form>-->
+<!--    </td>-->
+<!--</tr>-->
 
 </body>
 </html>

@@ -3,12 +3,15 @@
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
 import com.ruoyi.iot.domain.Waterpannel;
+
 import com.ruoyi.iot.mapper.WaterpannelMapper;
 import com.ruoyi.iot.service.IWaterpannelService;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -44,38 +47,32 @@ public class  WaterpannelServiceImpl implements IWaterpannelService{
         return waterpannelMapper.selectListById(id);
     }
 
+
+
+
+
     /**
-     * 查询水质数据信息
+     * 删除水质数据信息
      *
-     * @param aid 地区ID
-     * @return 水质数据信息
+     * @param id 水质数据信息
+     * @return 结果
      */
 
     @DataSource(value = DataSourceType.SXIOT)
-    public List<Map<String,Object>> selectListByAId(String aid)
+    public List<Map<String,Object>> deleteListById(Integer id)
     {
-        return waterpannelMapper.selectListByAId(aid);
+        return waterpannelMapper.deleteListById(id);
     }
 
 
-    /**
-     * 新增水质监测
-     *
-     * @param waterpannel 水质监测信息
-     * @return 结果
-     */
-//    @DataSource(value = DataSourceType.SXIOT)
-//    public int  insertWaterpannel(Waterpannel waterpannel)
-//    {
-//        return waterpannelMapper.insertWaterpannel(waterpannel);
-//    }
 
-    /**
-     * 修改水质监测
-     *
-     * @param waterpannel 水质监测信息
-     * @return 结果
-     */
+
+//    /**
+//     * 修改水质监测
+//     *
+//     * @param waterpannel 水质监测信息
+//     * @return 结果
+//     */
 
 //    @DataSource(value = DataSourceType.SXIOT)
 //    public int updateWaterpannel(Waterpannel waterpannel)

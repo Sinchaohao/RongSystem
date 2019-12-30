@@ -2,7 +2,9 @@
 
 import com.ruoyi.iot.domain.Waterpannel;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -24,13 +26,23 @@ public interface IWaterpannelService {
      */
     public  List<Map<String,Object>> selectListById(@Param("id")Integer id);
 
-    /**
-     * 查询水质数据信息
-     *
-     * @param aid 地区ID
-     * @return 水质数据信息
-     */
-    public  List<Map<String,Object>> selectListByAId(@Param("aid")String aid);
+
+
+
+   /**
+    *
+    * 删除水质数据信息
+    * @param  id   水质数据ID
+    * @return 水质数据信息
+    */
+
+    public List<Map<String,Object>> deleteListById(Integer id);
+
+
+
+
+
+
 
     /**
      * 新增水质监测
@@ -40,19 +52,4 @@ public interface IWaterpannelService {
      */
     //public int insertWaterpannel(Waterpannel waterpannel);
 
-    /**
-     * 修改水质监测
-     *
-     * @param waterpannel 环境水质信息
-     * @return 结果
-     */
-    //public int updateWaterpannel(Waterpannel waterpannel);
-
-    /**
-     * 查询水质监测列表
-     *
-     * @param waterpannel 水质监测信息
-     * @return 水质监测集合
-     */
-    //public List<Waterpannel> selectWaterpannelList(Waterpannel waterpannel);
 }
