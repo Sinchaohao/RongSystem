@@ -33,7 +33,7 @@
     <div class="col-xs-12 select-table table-striped">
         <div class="ibox float-e-margins">
             <div class="ibox-content">
-                <h5>安防警报类型 </h5>
+                <h3>安防警报类型 </h3>
                 <table id="bootstrap-table" data-mobile-responsive="true"></table>
             </div>
         </div>
@@ -265,14 +265,11 @@
                     title: '所属部分',
                     sortable: true
                 },
-                /*{
-                    field:'ID',
-                    title: '操作',
-                    width: 120,
-                    align: 'center',
-                    valign: 'middle',
-                    formatter: actionFormatter
-                },*/
+                {
+                    field: 'alarm_value',
+                    title: '预警值',
+                    sortable: true
+                },
                 ]//警报类型的字段类型之前是text，不匹配，修改为varchar
         };
         $.table.init(options);

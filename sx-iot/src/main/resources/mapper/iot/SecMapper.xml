@@ -12,6 +12,6 @@
     </resultMap>
 
     <select id="selectSecList" resultMap="SecurityResult">
-        select mid,content,secnum,belong from secwarning
+        select mid,content,secnum,belong,alarm_value from secwarning
     </select>
 </mapper>
