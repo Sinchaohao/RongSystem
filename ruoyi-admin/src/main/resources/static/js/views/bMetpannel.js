@@ -3,6 +3,7 @@
 
 function metload() {
     init_hummet();//创建湿度二维表
+    init_rainmet();//创建降雨三维表
 }
 
 
@@ -103,38 +104,43 @@ function init_hummet() {
     });
 }
 
-/*
-function init_rainsec() {
-    var rainsec = echarts.init(document.getElementById('rainsec'));
+
+function init_rainmet() {
+    var rainmet = echarts.init(document.getElementById('rainmet'));
     $.ajax({
         type: "GET",
-        url: "/api/security/rain",
+        url: "/api/met/rain",
         datatype: "JSON",
         success: function (data) {
-            var rainsec_data = data.data;
+            var rainmet_data = data.data;
             var x_data = new Array();
             var y_data = new Array();
-            for (var i = 0; i < rainsec_data.length; i++) {
-                if (rainsec_data[i].rain == '') {
+            for (var i = 0; i < rainmet_data.length; i++) {
+                if (rainmet_data[i].rname == '') {
                     x_data.push('未知');
                 } else {
-                    y_data.push(parseFloat(rainsec_data[i].rain));
-                    x_data.push(rainsec_data[i].time);
+                    y_data.push(parseInt(rainmet_data[i].sumrain));
+                    x_data.push(rainmet_data[i].rname);
                 }
             }
-            /!*console.log(x_data);*!/
-            /!*console.log(y_data);*!/
+            /*console.log(x_data);*/
+            /*console.log(y_data);*/
             rain_option = {
+                //鼠标移动到柱状图会显示内容
                 tooltip: {
                     trigger: 'axis'
+                    //触发类型；轴触发,axis则鼠标hover到一条柱状图显示全部数据,item则鼠标hover到折线点显示相应数据
                 },
+                //工具箱,只能一个
                 toolbox: {
                     show: true,
                     feature: {
                         magicType: {show: true, type: ['line', 'bar']},
                     }
                 },
+                //是否用拖拽重计算特性
                 calculable: true,
+                //图标边缘
                 grid: {
                     left: '3%',
                     right: '3%',
@@ -144,7 +150,7 @@ function init_rainsec() {
                 },
                 xAxis: [
                     {
-                        type: 'category',
+                        type: 'category',//坐标轴类型
                         boundaryGap: false,
                         data: x_data,
                     }
@@ -165,7 +171,7 @@ function init_rainsec() {
                                 color: function(y_data) {
                                     var index_color = y_data.value;
 
-                                    if(index_color>=20){
+                                    if(index_color>=100){
                                         return '#fe4365';
                                     }else {
                                         return '#25daba';
@@ -179,20 +185,19 @@ function init_rainsec() {
                         markLine: {
                             data: [
                                 {
-                                    yAxis:'20',
+                                    yAxis:'100',
                                     lineStyle:{
                                         color:'#900',
                                         type: 'solid'
                                     },
-                                    name:'报警值'
+                                    name:'降雨'
                                 }
                             ]
                         }
                     },
                 ]
             };
-            rainsec.setOption(rain_option);
+            rainmet.setOption(rain_option);
         }
     });
 }
-*/
