@@ -10,7 +10,8 @@ package com.ruoyi.iot.service.impl;/* *
 
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
-import com.ruoyi.iot.domain.Secwarn;
+import com.ruoyi.iot.domain.Secenvwarn;
+import com.ruoyi.iot.domain.Secwatwarn;
 import com.ruoyi.iot.mapper.SecWarnMapper;
 import com.ruoyi.iot.service.ISecWarnService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,37 +27,55 @@ public class SecWarnWarnServiceImpl implements ISecWarnService {
 
     @Override
     @DataSource(value = DataSourceType.SXIOT)
-    public List<Secwarn> selectRainSecList() {
+    public List<Secenvwarn> selectRainSecList() {
         return secWarnMapper.selectRainSecList();
     }
 
     @Override
     @DataSource(value = DataSourceType.SXIOT)
-    public List<Secwarn> selectPmSecList() {
+    public List<Secenvwarn> selectPmSecList() {
         return secWarnMapper.selectPmSecList();
     }
 
     @Override
     @DataSource(value = DataSourceType.SXIOT)
-    public List<Secwarn> selectTempSecList() {
+    public List<Secenvwarn> selectTempSecList() {
         return secWarnMapper.selectTempSecList();
     }
 
     @Override
     @DataSource(value = DataSourceType.SXIOT)
-    public List<Secwarn> selectWlvlSecList() {
+    public List<Secenvwarn> selectWlvlSecList() {
         return secWarnMapper.selectWlvlSecList();
     }
 
     @Override
     @DataSource(value = DataSourceType.SXIOT)
-    public List<Secwarn> selectHumSecList() {
+    public List<Secenvwarn> selectHumSecList() {
         return secWarnMapper.selectHumSecList();
     }
 
     @Override
     @DataSource(value = DataSourceType.SXIOT)
-    public List<Secwarn> selectTypeSecList() {
-        return secWarnMapper.selectTypeSecList();
+    public List<Secenvwarn> selectEnvTypeSecList() {
+        return secWarnMapper.selectEnvTypeSecList();
+    }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Secenvwarn> selectWatTypeSecList() {
+        return secWarnMapper.selectWatTypeSecList();
+    }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Secwatwarn> water() {
+        return secWarnMapper.water();
+    }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Secwatwarn> bacsec() {
+        return secWarnMapper.bacsec();
     }
 }

@@ -24,7 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/security")
 @CrossOrigin
-@Api(value = "各类警报可视化")
+@Api(value = "安防警报可视化")
 public class Secwarning {
 
     @Autowired
@@ -75,11 +75,34 @@ public class Secwarning {
         return test;
     }
 
-    @GetMapping("/sectype")
-    @ApiOperation(value = "警报类型可视化")
+    @GetMapping("/envsectype")
+    @ApiOperation(value = "环境警报类型可视化")
+    public RongApiRes selectEnvTypeList(){
+        List pre = secWarnService.selectEnvTypeSecList();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
 
-    public RongApiRes selectTypeList(){
-        List pre = secWarnService.selectTypeSecList();
+    @GetMapping("/watsectype")
+    @ApiOperation(value = "水质警报类型可视化")
+    public RongApiRes selectwatTypeList(){
+        List pre = secWarnService.selectWatTypeSecList();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
+
+    @GetMapping("/water")
+    @ApiOperation(value = "水质警报3d可视化(毒理)")
+    public RongApiRes water(){
+        List pre = secWarnService.water();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
+
+    @GetMapping("/bac")
+    @ApiOperation(value = "水质警报可视化(细菌数量)")
+    public RongApiRes bacsec(){
+        List pre = secWarnService.bacsec();
         RongApiRes test = RongApiService.get_list(pre);
         return test;
     }

@@ -25,6 +25,10 @@ public class Security extends BaseEntity {
 
     private String content;//注意要和数据库中的数据类型一样
 
+    private long secnum;
+
+    private String belong;
+
     public int getMid() {
         return mid;
     }
@@ -41,11 +45,29 @@ public class Security extends BaseEntity {
         this.content = content;
     }
 
+    public long getSecnum() {
+        return secnum;
+    }
+
+    public void setSecnum(long secnum) {
+        this.secnum = secnum;
+    }
+
+    public String getBelong() {
+        return belong;
+    }
+
+    public void setBelong(String belong) {
+        this.belong = belong;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
                 .append("mid", getMid())
                 .append("content", getContent())
+                .append("secnum", getSecnum())
+                .append("belong", getBelong())
                 .toString();
     }
 }
