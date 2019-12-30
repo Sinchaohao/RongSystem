@@ -29,6 +29,8 @@ public class Security extends BaseEntity {
 
     private String belong;
 
+    private String alarm_value;
+
     public int getMid() {
         return mid;
     }
@@ -61,6 +63,14 @@ public class Security extends BaseEntity {
         this.belong = belong;
     }
 
+    public String getAlarm_value() {
+        return alarm_value;
+    }
+
+    public void setAlarm_value(String alarm_value) {
+        this.alarm_value = alarm_value;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -68,6 +78,7 @@ public class Security extends BaseEntity {
                 .append("content", getContent())
                 .append("secnum", getSecnum())
                 .append("belong", getBelong())
+                .append("alarm_value", getAlarm_value())
                 .toString();
     }
 }
