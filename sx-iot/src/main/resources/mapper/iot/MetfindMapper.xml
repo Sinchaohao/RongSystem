@@ -19,4 +19,8 @@
         select id,rname,data,time from temp_data
         where rname=#{rname}
     </select>
+    <select id="deleteidMet" resultMap="MetCountResult">
+        delete from temp_data
+        where id=#{id}
+    </select>
 </mapper>

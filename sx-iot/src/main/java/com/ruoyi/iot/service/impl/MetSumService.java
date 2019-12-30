@@ -30,4 +30,16 @@ public class MetSumService implements IMetSumService {
     public List<MetSum> selectHumMet(){
         return metSumMapper.selectHumMet();
     }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<MetSum> selectSeeMet(){
+        return metSumMapper.selectSeeMet();
+    }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<MetSum> selectRiverMet(){
+        return metSumMapper.selectRiverMet();
+    }
 }

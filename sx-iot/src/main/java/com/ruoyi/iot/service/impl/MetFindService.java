@@ -32,4 +32,10 @@ public class MetFindService implements IMetFindService {
     public List<Map<String,Object>> selectfindnameMet(String rname){
         return metFindMapper.selectfindnameMet(rname);
     }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public List<Map<String,Object>> deleteidMet(String id){
+        return metFindMapper.deleteidMet(id);
+    }
 }
