@@ -119,6 +119,8 @@
         };
         $.table.init(options);
     }
+
+
 </script>
 <!--jquery图表float插件-->
 <script th:src="@{/js/plugins/flot/jquery.flot.js}"></script>
@@ -144,5 +146,33 @@
 <!--sparkline图表插件-->
 <script th:src="@{/js/plugins/sparkline/jquery.sparkline.min.js}"></script>
 <script th:src="@{/js/demo/sparkline-demo.min.js}"></script>
+
+
+<form action="/iot/metpannel/find" method="post">
+    编号：<input type="text" name="id"/></br>
+    <input type="submit" value="编号查询"/>
+    <input type="reset" value="重置">
+</form>
+<form action="/iot/metpannel/findname" method="post">
+    地区：<input type="text" name="rname"/></br>
+    <input type="submit" value="地区查询"/>
+    <input type="reset" value="重置">
+</form>
+<!--<form action="/iot/soilpannel/selectbyname" method="get">-->
+<!--    地域名:<input type="text" name="dname"/></br>-->
+<!--    <input type="submit" value="地域查询"/>-->
+<!--    <input type="reset" value="重置">-->
+<!--</form>-->
+<!--<a  href="/iot/device/selectall">查询所有设备信息</a><br>-->
+<!--<a href="/iot/soilpannel/add">添加设备信息 </a>-->
+<!--<p>删除设备信息</p>-->
+<!--<form action="/iot/device/deletebyname" method="get">-->
+<!--    地域名或者编号:<input type="text" name="dname"/></br>-->
+<!--    <input type="submit" value="删除"/>-->
+<!--    <input type="reset" value="重置">-->
+<!--</form>-->
+
+
+
 </body>
 </html>

@@ -8,15 +8,15 @@ package com.ruoyi.web.controller.iot;
 import com.ruoyi.common.page.TableDataInfo;
 import com.ruoyi.framework.web.base.BaseController;
 import com.ruoyi.iot.domain.MetCount;
+import com.ruoyi.iot.service.IMetFindService;
 import com.ruoyi.iot.service.IMetService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
 
 import static com.github.pagehelper.page.PageMethod.startPage;
 
@@ -29,6 +29,8 @@ public class metpannelController extends BaseController {
     @Autowired
     private IMetService metService;
 
+    @Autowired
+    private IMetFindService metfindService;
 
     @GetMapping()
     public String metpannel(){
@@ -44,5 +46,18 @@ public class metpannelController extends BaseController {
         startPage();
         List<MetCount> list = metService.selectMet();
         return getDataTable(list);
+    }
+
+
+    @PostMapping ("/find")
+    public String selectListById(Model model, @RequestParam("id") String id){
+        model.addAttribute("data",metfindService.selectfindMet(id));
+        return "iot/metpannel/metfind";
+    }
+
+    @PostMapping ("/findname")
+    public String selectListByarea(Model model, @RequestParam("rname") String rname){
+        model.addAttribute("dataa",metfindService.selectfindnameMet(rname));
+        return "iot/metpannel/metfindname";
     }
 }
