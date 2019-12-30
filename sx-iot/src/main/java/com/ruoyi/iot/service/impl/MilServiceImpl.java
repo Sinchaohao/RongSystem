@@ -43,4 +43,7 @@ public class MilServiceImpl implements IMilService {
         }
         return res;
     }
+//    public List<RiverData> selectData(String rname){
+//        return riverDataMapper.selectData(rname);
+//    }
 }

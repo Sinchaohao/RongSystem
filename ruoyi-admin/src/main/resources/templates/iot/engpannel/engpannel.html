@@ -59,6 +59,31 @@
 
 
 <div th:include="include :: footer"></div>
+<!--<script th:inline="javascript">-->
+<!--    var prefix = ctx + "iot/engpannel";-->
+
+<!--    $(function() {-->
+<!--        var options = {-->
+<!--            url: prefix + "/invalid",-->
+<!--            modalName: "终端运转",-->
+<!--            search: false,-->
+<!--            showExport: true,-->
+<!--            columns: [{-->
+<!--                field : 'teid',-->
+<!--                title : "终端id',-->
+<!--            },-->
+<!--                {-->
+<!--                    field : 'warn',-->
+<!--                    title : '警告级别',-->
+<!--                },-->
+<!--                {-->
+<!--                    field : 'time',-->
+<!--                    title : 'time',-->
+<!--                }]-->
+<!--        };-->
+<!--        $.table.init(options);-->
+<!--    });-->
+<!--</script>-->
 <script th:src="@{/ajax/libs/jquery-layout/jquery.layout-latest.js}"></script>
 <script th:src="@{/ajax/libs/jquery-ztree/3.5/js/jquery.ztree.all-3.5.js}"></script>
 

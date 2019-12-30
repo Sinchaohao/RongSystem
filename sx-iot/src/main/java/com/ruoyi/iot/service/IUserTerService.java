@@ -1,6 +1,6 @@
 package com.ruoyi.iot.service;
 
-import com.ruoyi.iot.domain.RiverData;
+import com.ruoyi.iot.domain.UserTerminals;
 
 import java.util.List;
 
@@ -10,7 +10,6 @@ import java.util.List;
  * @Description:
  * @Date:
  */
-public interface IAreaDataService {
-
-    public List<RiverData> selectData();
+public interface IUserTerService {
+    public List<UserTerminals> selectTerInvalid();
 }

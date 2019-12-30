@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.iot.mapper.UserTerMapper">
+
+    <resultMap type="UserTerminals" id="UserTerResult">
+        <id property="id" column="id"/>
+        <result property="userid" column="userid"/>
+        <result property="teid" column="tid"/>
+        <result property="note" column="note"/>
+        <result property="creatime" column="creatime"/>
+        <result property="isuse" column="isuse"/>
+        <result property="lasttime" column="lasttime" jdbcType="DATE"/>
+        <result property="day" column="day"/>
+    </resultMap>
+
+<!--    <sql id="UserTer">-->
+<!--        id,userid,teid,comstand,note,broadtel,broadfre,intertime,creatime,isuse,-->
+<!--        lasttime,to_days(now())_to_days(lasttime)as day,rds,fmfrequency,trafficlimit-->
+<!--    </sql>-->
+
+    <select id="selectTerInvalid" resultMap="UserTerResult">
+        select id,userid,teid,isuse,
+        lasttime,to_days(now())-to_days(lasttime)as day from user_terminals
+        where isuse=0 order by lasttime
+    </select>
+</mapper>
