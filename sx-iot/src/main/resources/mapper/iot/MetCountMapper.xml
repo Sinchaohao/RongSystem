@@ -7,6 +7,7 @@
         <result property="rname" column="rname" />
         <result property="sumhum" column="sumhum"/>
         <result property="sumrain" column="sumrain"/>
+        <result property="countrain" column="countrain"/>
         <result property="hum" column="hum"/>
     </resultMap>
 
@@ -23,8 +24,10 @@
     <select id="selectRainMet" resultMap="MetCountResult">
         select
           rname,
+          sum(data)
+          as sumrain,
           count(rname)
-          as sumrain
+          as countrain
         from
           rain_data
         group by rname

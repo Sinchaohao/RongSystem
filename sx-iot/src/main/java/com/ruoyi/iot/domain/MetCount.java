@@ -12,11 +12,23 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class MetCount extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
-
+    private String id;
     private String rname;
     private String rtime;
     private String rdata;
 
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getRname() {
         return rname;
@@ -42,12 +54,14 @@ public class MetCount extends BaseEntity {
         this.rdata = rdata;
     }
 
+
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("rtime", getRtime())
-                .append("rname", getRname())
-                .append("rdata",getRdata())
-                .toString();
+        return "MetCount{" +
+                "id='" + id + '\'' +
+                ", rname='" + rname + '\'' +
+                ", rtime='" + rtime + '\'' +
+                ", rdata='" + rdata + '\'' +
+                '}';
     }
 }

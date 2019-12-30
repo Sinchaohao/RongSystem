@@ -35,7 +35,7 @@
             <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>各湿度地区数</h5>
+                        <h5>各湿度地区数(个)</h5>
                         <div class="ibox-tools">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 <i class="fa fa-superpowers"></i>
@@ -51,6 +51,27 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>降雨地区及降雨总时间可视化(h)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_rainmet()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="rainmet"></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-xs-12 select-table table-striped">
                 <div class="ibox float-e-margins">
                     <h5>温度信息 </h5>
@@ -75,6 +96,11 @@
             url: "/iot/metpannel/list",
             search: false,
             columns: [
+                {
+                    field: 'id',
+                    title: '地区序号',
+                    sortable: true
+                },
                 {
                     field: 'rname',
                     title: '地区',

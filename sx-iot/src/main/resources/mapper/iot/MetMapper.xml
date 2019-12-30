@@ -5,13 +5,13 @@
 <mapper namespace="com.ruoyi.iot.mapper.MetMapper">
 
     <resultMap type="MetCount" id="MetCountResult">
-
+        <result property="id" column="id"/>
         <result property="rname" column="rname"/>
         <result property="rtime" column="time"/>
         <result property="rdata" column="data"/>
     </resultMap>
 
     <select id="selectMet" resultMap="MetCountResult">
-        select rname,data,time from temp_data
+        select id,rname,data,time from temp_data
     </select>
 </mapper>
