@@ -31,6 +31,7 @@ public class SecpannelController extends BaseController {
     @GetMapping()
     public String pannel(){return prefix + "/bSecpannel";}
 
+
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo List(){

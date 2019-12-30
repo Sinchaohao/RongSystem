@@ -59,7 +59,7 @@
                          </ul>
                     </div>
                 </li>
-                 <!--<li class="active">
+                 <li class="active">
                     <a href="index.html"><i class="fa fa-home"></i> <span class="nav-label">控制台</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li ><a class="menuItem" th:href="@{/system/main}">核心</a></li>
@@ -68,7 +68,7 @@
                         <li ><a class="menuItem" th:href="@{/river/pannel}">山洪数据</a></li>
                         <li ><a class="menuItem" th:href="@{/broad/chat}">聊天窗口</a></li>
                     </ul>
-                </li-->
+                </li>
                 <li th:each="menu : ${menus}">
                 	<a href="#">
                 		<i class="fa fa fa-bar-chart-o" th:class="${menu.icon}"></i>
