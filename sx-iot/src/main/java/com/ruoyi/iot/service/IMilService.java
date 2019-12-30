@@ -14,5 +14,4 @@ import java.util.List;
 public interface IMilService {
     public List<EnvirData> selectMilList();
     public List<EnvirData> selectMilPm();
-    public List<RiverData> selectData(String rname);
 }
