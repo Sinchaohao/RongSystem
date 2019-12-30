@@ -28,75 +28,56 @@
     <link th:href="@{/ajax/libs/jquery-layout/jquery.layout-latest.css}" rel="stylesheet"/>
     <link th:href="@{/ajax/libs/jquery-ztree/3.5/css/metro/zTreeStyle.css}" rel="stylesheet"/>
 </head>
-<body class="gray-bg" onload="secload();select();$.table.search()">
+<body class="gray-bg" onload="select();$.table.search()">
+<div id="toast-container">
+    <form action="/iot/soilpannel/selectbyid" method="get">
+        编号 ：<input type="text" name="did"/>
+        <input type="submit" value="编号查询"/>
+        <input type="reset" value="重置">
+    </form>
+    <form action="/iot/soilpannel/selectbyname" method="get">
+        地域名:<input type="text" name="dname"/>
+        <input type="submit" value="地域查询"/>
+        <input type="reset" value="重置">
+    </form>
+    <a  href="/iot/device/selectall">查询所有设备信息</a>
+    <a href="/iot/soilpannel/add">添加设备信息 </a>
+    <p>删除设备信息</p>
+    <form action="/iot/device/deletebyname" method="get">
+        地域名或者编号:<input type="text" name="dname"/>
+        <input type="submit" value="删除"/>
+        <input type="reset" value="重置">
+    </form>
+    <a class="back_btn" href="javascript:window.history.go(-1)">< 返回主页</a>
+</div>
 <div class="row  border-bottom  dashboard-header">
     <div class="wrapper wrapper-content">
         <div class="row">
 
-            <div class="col-sm-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>含土壤含水量分布可视化</h5>
-                        <div class="ibox-tools">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-superpowers"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a onclick="init_watersec()">原始数据</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id="watersec"></div>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="col-sm-6">-->
+<!--                <div class="ibox float-e-margins">-->
+<!--                    <div class="ibox-title">-->
+<!--                        <h5>含土壤含水量分布可视化</h5>-->
+<!--                        <div class="ibox-tools">-->
+<!--                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">-->
+<!--                                <i class="fa fa-superpowers"></i>-->
+<!--                            </a>-->
+<!--                            <ul class="dropdown-menu dropdown-user">-->
+<!--                                <li><a onclick="init_watersec()">原始数据</a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="ibox-content">-->
+<!--                        <div class="echarts" id="watersec"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>广播类型分布可视化</h5>
-                        <div class="ibox-tools">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-superpowers"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a onclick="init_bds_mbygroup1()">原始数据</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id="bds_mbygroup"></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-sm-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>终端数量以及在线状态统计</h5>
-                        <div class="ibox-tools">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-superpowers"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a onclick="init_bd_terminalstate()">原始数据</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="echarts" id="bd_terminalstate"></div>
-                    </div>
-                </div>
-            </div>
 
             <div class="col-xs-12 select-table table-striped">
                 <div class="ibox float-e-margins">
-                    <h5>土壤利用信息信息 </h5>
+                    <h3 align="center">设备管理信息 </h3>
                     <div class="ibox-content">
                         <table id="bootstrap-table" data-mobile-responsive="true"></table>
                     </div>
@@ -114,32 +95,47 @@
     //分页查询
     function select() {
         var options = {
-            url: "/iot/soilpannel/list",
+            url: "/iot/soilpannel/listdevice",
             search: false,
             columns: [
                 {
-                    field: 'id',
-                    title: '土地ID',
+                    field: 'did',
+                    title: '设备id',
                     sortable: true
                 },
                 {
-                    field: 'pid',
-                    title: '土地父ID',
+                    field: 'dname',
+                    title: '设备名称',
                     sortable: true
                 },
                 {
-                    field: 'name',
-                    title: '地域名',
+                    field: 'dstatus',
+                    title: '设备状态',
                     visible: true
                 },
                 {
-                    field: 'soiltype',
-                    title: '土地利用类型',
+                    field: 'dv',
+                    title: '电压',
                     sortable: true
                 },
                 {
-                    field: 'type',
-                    title: '土地类型',
+                    field: 'dctime',
+                    title: '创建时间',
+                    sortable: true
+                },
+                {
+                    field: 'dftime',
+                    title: '维护时间',
+                    sortable: true
+                },
+                {
+                    field: 'dfname',
+                    title: '维护人员',
+                    sortable: true
+                },
+                {
+                    field: 'dcname',
+                    title: '创建人员',
                     sortable: true
                 },
                 {
@@ -177,7 +173,6 @@
 <!--sparkline图表插件-->
 <script th:src="@{/js/plugins/sparkline/jquery.sparkline.min.js}"></script>
 <script th:src="@{/js/demo/sparkline-demo.min.js}"></script>
-<h3 align="center"> <a href="/iot/device/devicemanage">设备管理</a></h3>
-</form>
+
 </body>
 </html>

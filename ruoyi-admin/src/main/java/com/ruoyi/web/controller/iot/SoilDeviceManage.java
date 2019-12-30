@@ -19,12 +19,18 @@ public class SoilDeviceManage {
     @Autowired
     private SoilDeviceServiceImpl soilDeviceService;
 
-    //    查询所有
+//        查询所有
     @GetMapping("/selectall")
     public String showall(Model model) {
         model.addAttribute("device", soilDeviceService.selectall());
         return "iot/soilpannel/SoilDeviceManage";
     }
+    @GetMapping("devicemanage")
+    public String show()
+    {
+        return "iot/soilpannel/DeviceManage";
+    }
+
 
     @GetMapping("/adddevice")
     public String add(@RequestParam("did") String did, @RequestParam("dname") String dname,
