@@ -42,5 +42,30 @@
         delete  from tb_device where
         dname=#{dname} or did=#{dname}
     </delete>
-
+<select id="selectbynote" resultMap="SoilDeviceResult">
+  select
+          count(dstatus) as count,
+          2 as isnomal
+        from
+         tb_device
+        union
+        select
+          count(dstatus) as count,
+         dstatus
+        from
+         tb_device
+        where dstatus = 1
+        union
+        select
+          count(dstatus) as count,
+          dstatus
+        from
+        tb_device
+        where dstatus = 0
+        group by dstatus
+  order by isnomal desc
+</select>
+    <select id="selectbyds" resultMap="SoilDeviceResult">
+       select sum(did!=0) as dev,sum(dstatus=1) as run,sum(dstatus=0) as stop from tb_device
+    </select>
 </mapper>
