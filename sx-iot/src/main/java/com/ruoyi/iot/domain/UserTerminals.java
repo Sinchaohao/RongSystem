@@ -12,28 +12,41 @@ import java.util.Date;
 public class UserTerminals {
     private int id;
     private String userid;
-    private String teid;
-    private String comstand;
-    private String note;
-    private String broadtel;
-    private String broadfre;
-    private String intertime;
+    private String tid;
     private String creatime;
     private boolean isuse;
     private Date lasttime;
     private int day;
-    private String rds;
-    private String fmfrequency;
-    private float trafficlimit;
     private String warn;
+    private String rid;
+    private String status;
+    private String managerid;
 
-    public String getWarn() {
-        return warn;
+    public String getStatus() {
+        return status;
     }
 
-    public void setWarn(String warn) {
-        this.warn = warn;
+    public void setStatus(String status) {
+        this.status = status;
     }
+
+    public String getManagerid() {
+        return managerid;
+    }
+
+    public void setManagerid(String managerid) {
+        this.managerid = managerid;
+    }
+
+    public String getRid() {
+        return rid;
+    }
+
+    public void setRid(String rid) {
+        this.rid = rid;
+    }
+
+
 
     public int getId() {
         return id;
@@ -51,52 +64,12 @@ public class UserTerminals {
         this.userid = userid;
     }
 
-    public String getTeid() {
-        return teid;
+    public String getTid() {
+        return tid;
     }
 
-    public void setTeid(String teid) {
-        this.teid = teid;
-    }
-
-    public String getComstand() {
-        return comstand;
-    }
-
-    public void setComstand(String comstand) {
-        this.comstand = comstand;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public String getBroadtel() {
-        return broadtel;
-    }
-
-    public void setBroadtel(String broadtel) {
-        this.broadtel = broadtel;
-    }
-
-    public String getBroadfre() {
-        return broadfre;
-    }
-
-    public void setBroadfre(String broadfre) {
-        this.broadfre = broadfre;
-    }
-
-    public String getIntertime() {
-        return intertime;
-    }
-
-    public void setIntertime(String intertime) {
-        this.intertime = intertime;
+    public void setTid(String tid) {
+        this.tid = tid;
     }
 
     public String getCreatime() {
@@ -131,41 +104,11 @@ public class UserTerminals {
         this.day = day;
     }
 
-    public String getRds() {
-        return rds;
+    public String getWarn() {
+        return warn;
     }
 
-    public void setRds(String rds) {
-        this.rds = rds;
+    public void setWarn(String warn) {
+        this.warn = warn;
     }
-
-    public String getFmfrequency() {
-        return fmfrequency;
-    }
-
-    public void setFmfrequency(String fmfrequency) {
-        this.fmfrequency = fmfrequency;
-    }
-
-    public float getTrafficlimit() {
-        return trafficlimit;
-    }
-
-    public void setTrafficlimit(float trafficlimit) {
-        this.trafficlimit = trafficlimit;
-    }
-
-//    Date date = new Date();
-//    SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
-//    String time = sc.next();
-//        try {
-//        Date d = sdf.parse(time); // 将日期和时间的字符串表示形式转换为其等效的 DateTime。
-//        // date.getTime() 返回时间的毫秒数值
-//        int year = (int) ((date.getTime() - d.getTime()) / (1000 * 60 * 60 * 24)) / 365; // 计算年
-//        int day = (int) ((date.getTime() - d.getTime()) / (1000 * 60 * 60 * 24)); // 计算天
-//        System.out.println("您距今已生活了" + year + "年，" + "总共" + day + "天。");
-//
-//    } catch (ParseException e) {
-//        e.
-//    }
 }
