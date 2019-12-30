@@ -60,4 +60,10 @@ public class metpannelController extends BaseController {
         model.addAttribute("dataa",metfindService.selectfindnameMet(rname));
         return "iot/metpannel/metfindname";
     }
+
+    @PostMapping ("/deleteid")
+    public String deleteListById(Model model, @RequestParam("id") String id){
+        model.addAttribute("deta",metfindService.deleteidMet(id));
+        return "iot/metpannel/metdelete";
+    }
 }

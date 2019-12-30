@@ -16,4 +16,5 @@ import java.util.Map;
 public interface MetFindMapper {
     public List<Map<String,Object>> selectfindMet(@Param("id") String id);
     public List<Map<String,Object>> selectfindnameMet(@Param("rname") String rname);
+    public List<Map<String,Object>> deleteidMet(@Param("id") String id);
 }

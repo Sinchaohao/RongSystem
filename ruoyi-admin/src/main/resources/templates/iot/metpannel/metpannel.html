@@ -72,6 +72,46 @@
                 </div>
             </div>
 
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>可见度可视化(h)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_seemet()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="seemet"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>水位可视化(h)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_rivermet()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="rivermet"></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-xs-12 select-table table-striped">
                 <div class="ibox float-e-margins">
                     <h5>温度信息 </h5>
@@ -156,6 +196,11 @@
 <form action="/iot/metpannel/findname" method="post">
     地区：<input type="text" name="rname"/></br>
     <input type="submit" value="地区查询"/>
+    <input type="reset" value="重置">
+</form>
+<form action="/iot/metpannel/deleteid" method="post">
+    编号：<input type="text" name="id"/></br>
+    <input type="submit" value="删除"/>
     <input type="reset" value="重置">
 </form>
 <!--<form action="/iot/soilpannel/selectbyname" method="get">-->
