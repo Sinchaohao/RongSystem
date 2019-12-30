@@ -2,9 +2,8 @@ package com.ruoyi.iot.service.impl;
 
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
-import com.ruoyi.iot.domain.SoilWater;
-import com.ruoyi.iot.mapper.SoilWaterMapper;
-import com.ruoyi.iot.service.SoilWaterService;
+import com.ruoyi.iot.domain.Tersga1;
+import com.ruoyi.iot.mapper.Soil3DMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -12,19 +11,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 @Component
-public class SoilWaterServiceImpl  implements SoilWaterService {
+public class Soil3DServiceImpl {
     @Autowired
-    private SoilWaterMapper soilWaterMapper;
+    private Soil3DMapper soil3D;
 
-    @Override
     @DataSource(value = DataSourceType.SXSOIL)
-    public List<SoilWater>select(){
-        return soilWaterMapper.select();
-    }
-    @Override
-    @DataSource(value = DataSourceType.SXSOIL)
-    public List<SoilWater>selectname(){
-        return  soilWaterMapper.selectname();
+    public Tersga1 sumters(){
+        return soil3D.sumters();
     }
 
+    @DataSource(value = DataSourceType.SXSOIL)
+    public List<Tersga1> sumterm(){
+        return soil3D.sumterm();
+    }
 }
