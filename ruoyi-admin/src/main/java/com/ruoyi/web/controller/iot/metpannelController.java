@@ -1,7 +1,10 @@
 package com.ruoyi.web.controller.iot;
+/**
+ * 周宇滔
+ * 气象信息
+ */
 
 
-import com.ruoyi.common.base.BaseEntity;
 import com.ruoyi.common.page.TableDataInfo;
 import com.ruoyi.framework.web.base.BaseController;
 import com.ruoyi.iot.domain.MetCount;
