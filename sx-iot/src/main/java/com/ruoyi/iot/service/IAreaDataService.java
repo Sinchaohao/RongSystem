@@ -1,6 +1,5 @@
 package com.ruoyi.iot.service;
 
-import com.ruoyi.iot.domain.AreaData;
 import com.ruoyi.iot.domain.RiverData;
 
 import java.util.List;
