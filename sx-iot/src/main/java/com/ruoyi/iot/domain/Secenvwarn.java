@@ -10,8 +10,9 @@ package com.ruoyi.iot.domain;/* *
 
 import com.ruoyi.common.base.BaseEntity;
 
-public class Secwarn extends BaseEntity {
+public class Secenvwarn extends BaseEntity {
     private static final long serialVersionUID = 1L;
+    private int mid;
     private String pm;
     private String rain;
     private String time;
@@ -20,6 +21,14 @@ public class Secwarn extends BaseEntity {
     private String hum;
     private String content;
     private long secnum;
+
+    public int getMid() {
+        return mid;
+    }
+
+    public void setMid(int mid) {
+        this.mid = mid;
+    }
 
     public String getPm() {
         return pm;
@@ -87,8 +96,9 @@ public class Secwarn extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Secwarn{" +
-                "pm='" + pm + '\'' +
+        return "Secenvwarn{" +
+                "mid=" + mid +
+                ", pm='" + pm + '\'' +
                 ", rain='" + rain + '\'' +
                 ", time='" + time + '\'' +
                 ", temp='" + temp + '\'' +

@@ -7,9 +7,11 @@
     <resultMap type="Security" id="SecurityResult">
         <id property="mid" column="mid" />
         <result property="content" column="content"/>
+        <result property="secnum" column="secnum"/>
+        <result property="belong" column="belong"/>
     </resultMap>
 
     <select id="selectSecList" resultMap="SecurityResult">
-        select mid,content from warnmessage
+        select mid,content,secnum,belong from secwarning
     </select>
 </mapper>
