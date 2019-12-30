@@ -11,8 +11,7 @@ import java.util.List;
  * @Description:
  * @Date:
  */
-public interface IAreaDataService {
-    public List<AreaData> selectDataByRname(String rname);
+public interface IAreaDataService {\
 
     public List<RiverData> selectData();
 }
