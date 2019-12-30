@@ -26,11 +26,24 @@ public class UserTerServiceImpl implements IUserTerService {
     public List<UserTerminals> selectTerInvalid(){
         List<UserTerminals> res=userTerMapper.selectTerInvalid();
         for(UserTerminals userTerminals:res){
-            if(userTerminals.getDay()<=7&&userTerminals.getDay()>=0)userTerminals.setWarn("2");
-            else if(userTerminals.getDay()>7&&userTerminals.getDay()<=15)userTerminals.setWarn("1");
-            else if(userTerminals.getDay()>15&&userTerminals.getDay()<=31)userTerminals.setWarn("0");
-            else if(userTerminals.getDay()>31&&userTerminals.getDay()<=1460)userTerminals.setWarn("SSS");
-            else userTerminals.setWarn("终端超寿命需要更换");
+            switch (userTerminals.getStatus()){
+                case "1":
+                    userTerminals.setStatus("上班中");
+                    if(userTerminals.getDay()<7&&userTerminals.getDay()>0)userTerminals.setWarn("S");
+                    else if(userTerminals.getDay()<31&&userTerminals.getDay()>=7)userTerminals.setWarn("S+");
+                    else userTerminals.setWarn("S++");
+                    break;
+                case "2":
+                    userTerminals.setStatus("休息中");
+                    if(userTerminals.getDay()<7&&userTerminals.getDay()>0)userTerminals.setWarn("A");
+                    else if(userTerminals.getDay()<31&&userTerminals.getDay()>=7)userTerminals.setWarn("A+");
+                    else userTerminals.setWarn("A++");
+                    break;
+                case "3":
+                    userTerminals.setStatus("请假");
+                    if(userTerminals.getDay()>0&&userTerminals.getDay()<7)userTerminals.setWarn("等待工作人员");
+                    else userTerminals.setWarn("安排其余在岗人员");
+            }
         }
         return res;
     }
