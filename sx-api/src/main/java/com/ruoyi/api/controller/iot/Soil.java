@@ -3,9 +3,11 @@ package com.ruoyi.api.controller.iot;
 import com.ruoyi.api.domain.RongApiRes;
 import com.ruoyi.api.service.RongApiService;
 import com.ruoyi.iot.domain.Tersga1;
+import com.ruoyi.iot.mapper.TriggerMapper;
 import com.ruoyi.iot.service.impl.Soil3DServiceImpl;
 import com.ruoyi.iot.service.impl.SoilDeviceServiceImpl;
 import com.ruoyi.iot.service.impl.SoilWaterServiceImpl;
+import com.ruoyi.iot.service.impl.TriggerServiceImpl;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,6 +28,8 @@ public class Soil {
  private SoilDeviceServiceImpl soilDeviceService;
  @Autowired
  private Soil3DServiceImpl soil3DService;
+ @Autowired
+ private TriggerServiceImpl triggerService;
     @CrossOrigin
     @GetMapping("/water")
     @ApiOperation(value = "根据时间统各阶段土壤含水量")
@@ -41,7 +45,13 @@ public class Soil {
         RongApiRes test = RongApiService.get_list(pre);
         return test;
     }
-
+    @GetMapping("/trigger")
+    @ApiOperation(value = "触发器操作类型统计")
+    public RongApiRes selectListByScategory() {
+        List pre = triggerService.selectlist();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
     @GetMapping(value = "/ds")
     @CrossOrigin
     @ApiOperation(value = "返回首页需要的统计数据")
