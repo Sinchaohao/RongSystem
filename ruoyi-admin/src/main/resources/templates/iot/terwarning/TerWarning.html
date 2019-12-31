@@ -100,10 +100,10 @@
                     width:"7%",
                     formatter:function (value) {
                         if(value == 0){
-                            var msg = "<span style='color:#e25e08;'>可用</span>"
+                            var msg = "<span style='color:#e25e08;'>不可用</span>"
                             return msg;
                         }else {
-                            var msg = "<span style='color:#13e21b;'>不可用</span>"
+                            var msg = "<span style='color:#13e21b;'>可用</span>"
                             return msg;
                         }
                     }
@@ -116,10 +116,8 @@
                         var msg = '<a class="btn btn-xs btn-primary" >设为可用</a> ';
                         var actions = '<a class="btn btn-xs btn-success" >设为不可用</a>';
                         if(row.isuse == 0){
-                            row.isuse=1;
                             return msg;
                         }else {
-                            row.isuse=0;
                             return actions;
                         }
                     }
