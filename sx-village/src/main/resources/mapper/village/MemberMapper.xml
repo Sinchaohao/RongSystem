@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="woman"    column="woman"    />
     </resultMap>
     <select id="selectbyedulevel" resultMap="MemberResult">
-        select edulevel,count(edulevel)as pid from myc_partymember group by edulevel;
+        select edulevel,count(edulevel)as pid from myc_partymember group by edulevel
     </select>
 
     <select id="countbygroup" resultMap="McountResult">
