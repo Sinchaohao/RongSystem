@@ -20,9 +20,9 @@
 
 
     <select id="selectMilList" resultMap="EnvirDataResult">
-        select id, rain, flow, wlevel, ph, pm, temp, hum, aid, time, remark from iotdata.envir_data order by time desc limit 0,500
+        select id, rain, flow, wlevel, ph, pm, temp, hum, aid, time, remark from iotdata.env_data order by time desc limit 0,500
     </select>
     <select id="selectMilPm" resultMap="EnvirDataResult">
-        select avg(pm)as pm from iotdata.envir_data order by time desc limit 0,500
+        select avg(pm)as pm from iotdata.env_data order by time desc limit 0,500
     </select>
 </mapper>
