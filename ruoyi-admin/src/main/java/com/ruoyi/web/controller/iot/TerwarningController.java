@@ -37,4 +37,11 @@ public class TerwarningController extends BaseController {
         return getDataTable(list);
     }
 
+    @RequestMapping("/updatetid")
+    @GetMapping()
+    public String updatetid(int tid){
+        userTerService.updateTid(tid);
+        return  prefix + "/TerWarning";
+    }
+
 }

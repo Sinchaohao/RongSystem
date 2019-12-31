@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface IUserTerService {
     public List<UserTerminals> selectTerInvalid();
+    public int updateTid(int tid);
 }

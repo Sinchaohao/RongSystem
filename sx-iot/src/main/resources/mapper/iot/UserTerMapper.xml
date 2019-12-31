@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ruoyi.iot.mapper.UserTerMapper">
 
-    <resultMap type="UserTerminals" id="UserTerResult">
+    <resultMap type="UserTerminals" id="UserTerminalsResult">
         <id property="id" column="id"/>
         <result property="userid" column="userid"/>
         <result property="tid" column="tid"/>
@@ -16,13 +16,20 @@
         <result property="managerid" column="managerid"/>
     </resultMap>
 
-<!--    <sql id="UserTer">-->
-<!--        id,userid,teid,comstand,note,broadtel,broadfre,intertime,creatime,isuse,-->
-<!--        lasttime,to_days(now())_to_days(lasttime)as day,rds,fmfrequency,trafficlimit-->
-<!--    </sql>-->
+    <resultMap id="TerManagerResult" type="TerManager">
+        <result property="tid" column="tid"/>
+        <result property="managerid" column="managerid"/>
+        <result property="managertel" column="managertel"/>
+        <result property="status" column="status"/>
+        <result property="isuse" column="isuse"/>
+    </resultMap>
 
-    <select id="selectTerInvalid" resultMap="UserTerResult">
+    <select id="selectTerInvalid" resultMap="UserTerminalsResult">
         select a.tid,a.userid,a.lasttime,to_days(now())-to_days(a.lasttime)as day,b.status,b.managerid
         from user_terminals a join ter_manager b on a.tid=b.tid and b.isuse =0 order by status,lasttime
     </select>
+
+    <update id="updateTid" parameterType="Integer">
+        update ter_manager set isuse=1 where tid=#{tid};
+    </update>
 </mapper>
