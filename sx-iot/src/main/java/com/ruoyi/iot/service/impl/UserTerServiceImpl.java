@@ -47,4 +47,10 @@ public class UserTerServiceImpl implements IUserTerService {
         }
         return res;
     }
+
+    @Override
+    @DataSource(value = DataSourceType.SXIOT)
+    public int updateTid(int tid){
+        return userTerMapper.updateTid(tid);
+    }
 }
