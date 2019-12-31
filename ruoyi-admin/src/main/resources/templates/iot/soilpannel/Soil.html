@@ -71,15 +71,38 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <div class="echarts" id="3d_bt"  style="height:400px;" ></div>
+                        <div class="echarts" id="3d_bt" ></div>
                     </div>
                 </div>
             </div>
+            <div>
+
+                <div>
+                    <div class="col-sm-6">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>操作类型可视化</h5>
+                                <div class="ibox-tools">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-superpowers"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li><a onclick="init_trigger()">原始数据</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="echarts" id="trigger"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 > <a href="/iot/device/devicemanage">设备管理模块</a></h2>
 
         </div>
             <div class="col-xs-12 select-table table-striped">
                 <div class="ibox float-e-margins">
-                    <h5>土壤利用信息信息 </h5>
+                    <h3 align="center">土壤利用信息信息 </h3>
                     <div class="ibox-content">
                         <table id="bootstrap-table" data-mobile-responsive="true"></table>
                     </div>
@@ -160,7 +183,7 @@
 <!--sparkline图表插件-->
 <script th:src="@{/js/plugins/sparkline/jquery.sparkline.min.js}"></script>
 <script th:src="@{/js/demo/sparkline-demo.min.js}"></script>
-<h3 align="center"> <a href="/iot/device/devicemanage">设备管理</a></h3>
-</form>
+
+</div>
 </body>
 </html>

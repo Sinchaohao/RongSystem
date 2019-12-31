@@ -2,6 +2,7 @@ function secload(){
      init_watersec();
 init_3d_bt();
     sort_3d_bt();
+    init_trigger();
 }
 function init_watersec() {
     var watersec = echarts.init(document.getElementById('watersec'));
@@ -336,4 +337,57 @@ function init_3d_bt() {
         }
     })
 
+}
+
+function init_trigger() {
+    var trigger = echarts.init(document.getElementById('trigger'));
+    $.ajax({
+        type: "GET",
+        url: "/api/iot/trigger",
+        datatype: "JSON",
+        success: function (data) {
+            var trigger_data = data.data;
+            var x_data = new Array();
+            var y_data = new Array();
+            for (var i = 0; i < trigger_data.length; i++) {
+                if (trigger_data[i].marea == '') {
+                    x_data.push('未知');
+                } else {
+                    x_data.push(trigger_data[i].type);
+                    y_data.push(parseInt(trigger_data[i].count));
+
+                }
+            }
+            /*console.log(bdsygroup_data);*/
+            /*console.log(x_data);
+             console.log(y_data);*/
+            bds_option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: x_data
+                },
+                calculable: true,
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '60%'],
+                        data: [
+                            /*y_data*/
+                            {name: x_data[0], value: 3},
+                            {name: x_data[1], value: 2},
+
+                        ]
+                    }
+                ]
+            };
+           trigger.setOption(bds_option);
+        }
+    });
 }
