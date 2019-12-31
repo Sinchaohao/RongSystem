@@ -27,7 +27,7 @@
           count(scategory)as bcount
         from
           pro_sinmanage
-        group by scategory
+        group by broaddate
         order by broaddate desc
         limit 30
     </select>
