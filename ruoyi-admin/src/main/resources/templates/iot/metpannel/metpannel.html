@@ -35,7 +35,7 @@
             <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>各湿度地区数</h5>
+                        <h5>各湿度地区数(个)</h5>
                         <div class="ibox-tools">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 <i class="fa fa-superpowers"></i>
@@ -51,6 +51,87 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>降雨地区及降雨总时间可视化(h)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_rainmet()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="rainmet"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>可见度可视化(h)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_seemet()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="seemet"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>开慧镇水位可视化(h)</h5>
+                        <div class="ibox-tools">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-superpowers"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a onclick="init_rivermet()">原始数据</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="echarts" id="rivermet"></div>
+                    </div>
+                </div>
+            </div>
+
+<!--            <div class="col-sm-6">-->
+<!--                <div class="ibox float-e-margins">-->
+<!--                    <div class="ibox-title">-->
+<!--                        <h5>水位可视化(h)</h5>-->
+<!--                        <div class="ibox-tools">-->
+<!--                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">-->
+<!--                                <i class="fa fa-superpowers"></i>-->
+<!--                            </a>-->
+<!--                            <ul class="dropdown-menu dropdown-user">-->
+<!--                                <li><a onclick="init_3d_bt()">原始数据</a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="ibox-content">-->
+<!--                        <div class="echarts" id="3d_bt"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
             <div class="col-xs-12 select-table table-striped">
                 <div class="ibox float-e-margins">
                     <h5>温度信息 </h5>
@@ -76,6 +157,11 @@
             search: false,
             columns: [
                 {
+                    field: 'id',
+                    title: '地区序号',
+                    sortable: true
+                },
+                {
                     field: 'rname',
                     title: '地区',
                     sortable: true
@@ -93,6 +179,8 @@
         };
         $.table.init(options);
     }
+
+
 </script>
 <!--jquery图表float插件-->
 <script th:src="@{/js/plugins/flot/jquery.flot.js}"></script>
@@ -118,5 +206,38 @@
 <!--sparkline图表插件-->
 <script th:src="@{/js/plugins/sparkline/jquery.sparkline.min.js}"></script>
 <script th:src="@{/js/demo/sparkline-demo.min.js}"></script>
+
+
+<form action="/iot/metpannel/find" method="post">
+    编号：<input type="text" name="id"/></br>
+    <input type="submit" value="编号查询"/>
+    <input type="reset" value="重置">
+</form>
+<form action="/iot/metpannel/findname" method="post">
+    地区：<input type="text" name="rname"/></br>
+    <input type="submit" value="地区查询"/>
+    <input type="reset" value="重置">
+</form>
+<form action="/iot/metpannel/deleteid" method="post">
+    编号：<input type="text" name="id"/></br>
+    <input type="submit" value="删除"/>
+    <input type="reset" value="重置">
+</form>
+<!--<form action="/iot/soilpannel/selectbyname" method="get">-->
+<!--    地域名:<input type="text" name="dname"/></br>-->
+<!--    <input type="submit" value="地域查询"/>-->
+<!--    <input type="reset" value="重置">-->
+<!--</form>-->
+<!--<a  href="/iot/device/selectall">查询所有设备信息</a><br>-->
+<!--<a href="/iot/soilpannel/add">添加设备信息 </a>-->
+<!--<p>删除设备信息</p>-->
+<!--<form action="/iot/device/deletebyname" method="get">-->
+<!--    地域名或者编号:<input type="text" name="dname"/></br>-->
+<!--    <input type="submit" value="删除"/>-->
+<!--    <input type="reset" value="重置">-->
+<!--</form>-->
+
+
+
 </body>
 </html>
