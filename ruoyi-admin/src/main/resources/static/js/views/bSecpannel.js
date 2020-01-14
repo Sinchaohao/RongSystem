@@ -25,13 +25,34 @@ function init_pmsec() {
         success: function (data) {
             var pmsec_data = data.data;
             var x_data = new Array();
-            var y_data = new Array();
+            var y_cs_data = new Array();
+            var y_hx_data = new Array();
+            var y_hh_data = new Array();
             for (var i = 0; i < pmsec_data.length; i++) {
                 if (pmsec_data[i].pm == '') {
                     x_data.push('未知');
-                } else {
-                    y_data.push(parseFloat(pmsec_data[i].pm));
+                }
+                if (pmsec_data[i].aid == '01') {
+                    y_cs_data.push(pmsec_data[i].pm);
                     x_data.push(pmsec_data[i].time);
+                }
+            }
+            for (var i = 0; i < pmsec_data.length; i++) {
+                if (pmsec_data[i].pm == '') {
+                    x_data.push('未知');
+                }
+                if (pmsec_data[i].aid == '0101') {
+                    y_hx_data.push(pmsec_data[i].pm);
+                    //x_data.push(pmsec_data[i].time);
+                }
+            }
+            for (var i = 0; i < pmsec_data.length; i++) {
+                if (pmsec_data[i].pm == '') {
+                    x_data.push('未知');
+                }
+                if(pmsec_data[i].aid == '0102'){
+                    y_hh_data.push(pmsec_data[i].pm);
+                    //x_data.push(pmsec_data[i].time);
                 }
             }
             /*console.log(x_data);*/
@@ -54,6 +75,11 @@ function init_pmsec() {
                     bottom: '0%',
                     containLabel: true
                 },
+                legend:{
+                    show:true,
+                    selectedMode:'single',    //设置显示单一图例的图形，点击可切换
+                    data:['长沙县','黄兴镇','黄花镇'],
+                },
                 xAxis: [
                     {
                         type: 'category',
@@ -71,11 +97,12 @@ function init_pmsec() {
                 ],
                 series: [
                     {
+                        name: '长沙县',
                         type: 'line',
                         itemStyle: {
                             normal: {
-                                color: function (y_data) {
-                                    var index_color = y_data.value;
+                                color: function (y_cs_data) {
+                                    var index_color = y_cs_data.value;
                                     if (index_color <= 50 ) {
                                         return '#00fc1a';
                                     }
@@ -95,7 +122,93 @@ function init_pmsec() {
                                 lineStyle: {color: '#00fc1a' }//改变折线颜色
                             }
                         },
-                        data: y_data,
+                        data: y_cs_data,
+                        markLine: {
+                            data: [
+                                {label:{
+                                        formatter:'预警值:100',
+                                        position:'middle',
+                                    },
+                                    yAxis:'100',
+                                    lineStyle:{
+                                        color:'#900',
+                                        type: 'solid'
+                                    },
+                                    name:'报警值'
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        name: '黄兴镇',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                color: function (y_hx_data) {
+                                    var index_color = y_hx_data.value;
+                                    if (index_color <= 50 ) {
+                                        return '#00fc1a';
+                                    }
+                                    if (index_color > 50 && index_color <=100 ) {
+                                        return '#FFFF00';
+                                    }
+                                    if(index_color > 100 && index_color <= 150 ) {
+                                        return '#FFA500';
+                                    }
+                                    if(index_color > 150 && index_color <= 200 ) {
+                                        return '#fe4365';
+                                    }
+                                    if(index_color > 200 ) {
+                                        return '#000000';
+                                    }
+                                },
+                                lineStyle: {color: '#00fc1a' }//改变折线颜色
+                            }
+                        },
+                        data: y_hx_data,
+                        markLine: {
+                            data: [
+                                {label:{
+                                        formatter:'预警值:100',
+                                        position:'middle',
+                                    },
+                                    yAxis:'100',
+                                    lineStyle:{
+                                        color:'#900',
+                                        type: 'solid'
+                                    },
+                                    name:'报警值'
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        name: '黄花镇',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                color: function (y_hh_data) {
+                                    var index_color = y_hh_data.value;
+                                    if (index_color <= 50 ) {
+                                        return '#00fc1a';
+                                    }
+                                    if (index_color > 50 && index_color <=100 ) {
+                                        return '#FFFF00';
+                                    }
+                                    if(index_color > 100 && index_color <= 150 ) {
+                                        return '#FFA500';
+                                    }
+                                    if(index_color > 150 && index_color <= 200 ) {
+                                        return '#fe4365';
+                                    }
+                                    if(index_color > 200 ) {
+                                        return '#000000';
+                                    }
+                                },
+                                lineStyle: {color: '#00fc1a' }//改变折线颜色
+                            }
+                        },
+                        data: y_hh_data,
                         markLine: {
                             data: [
                                 {label:{
@@ -128,15 +241,55 @@ function init_rainsec() {
         success: function (data) {
             var rainsec_data = data.data;
             var x_data = new Array();
-            var y_data = new Array();
+            var y_cs_data = new Array();
+            var y_hx_data = new Array();
+            var y_hh_data = new Array();
             for (var i = 0; i < rainsec_data.length; i++) {
                 if (rainsec_data[i].rain == '') {
                     x_data.push('未知');
-                } else {
-                    y_data.push(parseFloat(rainsec_data[i].rain));
+                }
+                if (rainsec_data[i].aid == '01') {
+                    y_cs_data.push(rainsec_data[i].rain);
                     x_data.push(rainsec_data[i].time);
                 }
             }
+            for (var i = 0; i < rainsec_data.length; i++) {
+                if (rainsec_data[i].rain == '') {
+                    x_data.push('未知');
+                }
+                if (rainsec_data[i].aid == '0101') {
+                    y_hx_data.push(rainsec_data[i].rain);
+                    //x_data.push(rainsec_data[i].time);
+                }
+            }
+            for (var i = 0; i < rainsec_data.length; i++) {
+                if (rainsec_data[i].rain == '') {
+                    x_data.push('未知');
+                }
+                if(rainsec_data[i].aid == '0102'){
+                    y_hh_data.push(rainsec_data[i].rain);
+                    //x_data.push(rainsec_data[i].time);
+                }
+            }
+            /*for (var i = 0; i < rainsec_data.length; i++) {
+                if (rainsec_data[i].rain == '')
+                    x_data.push('未知');
+                else if (rainsec_data[i].aid == "01"){
+                    y_cs_data.push(rainsec_data[i].rain);
+                    x_data.push(rainsec_data[i].time);
+                    continue;
+                }
+                else if(rainsec_data[i].aid == "0101"){
+                    y_hx_data.push(rainsec_data[i].rain);
+                    x_data.push(rainsec_data[i].time);
+                    continue;
+                }
+                else if(rainsec_data[i].aid == "0102"){
+                    y_hh_data.push(rainsec_data[i].rain);
+                    x_data.push(rainsec_data[i].time);
+                    continue;
+                }
+            }*/
             /*console.log(x_data);*/
             /*console.log(y_data);*/
             rain_option = {
@@ -157,10 +310,17 @@ function init_rainsec() {
                     bottom: '0%',
                     containLabel: true
                 },
+                legend:{
+                    show:true,
+                    selectedMode:'single',    //设置显示单一图例的图形，点击可切换
+                    data:['长沙县','黄兴镇','黄花镇'],
+                },
                 xAxis: [
                     {
                         type: 'category',
-                        boundaryGap: false,
+                        boundaryGap: true,
+                        alignWithLabel:true,
+                        splitNumber:10,
                         data: x_data,
                     }
                 ],
@@ -174,11 +334,12 @@ function init_rainsec() {
                 ],
                 series: [
                     {
+                        name:'长沙县',
                         type: 'line',
                         itemStyle: {
                             normal: {
-                                color: function (y_data) {
-                                    var index_color = y_data.value;
+                                color: function (y_cs_data) {
+                                    var index_color = y_cs_data.value;
 
                                     if (index_color >= 20) {
                                         return '#fe4365';
@@ -189,7 +350,7 @@ function init_rainsec() {
                                 lineStyle: {color: '#8cd5c2' }//改变折线颜色
                             }
                         },
-                        data: y_data,
+                        data: y_cs_data,
                         markLine: {
                             data: [
                                 {
@@ -206,10 +367,109 @@ function init_rainsec() {
                                 }
                             ]
                         }
-                    }
+                    },
+                    /*{
+                        name:'长沙县',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {color: '#8cd5c2' }//改变折线颜色
+                            }
+                        },
+                        data: y_data,
+                    },*/
+                    {
+                        name:'黄兴镇',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                color: function (y_hx_data) {
+                                    var index_color = y_hx_data.value;
+
+                                    if (index_color >= 20) {
+                                        return '#fe4365';
+                                    } else {
+                                        return '#25daba';
+                                    }
+                                },
+                                lineStyle: {color: '#8cd5c2' }//改变折线颜色
+                            }
+                        },
+                        data: y_hx_data,
+                        markLine: {
+                            data: [
+                                {
+                                    label:{
+                                        formatter:'预警值:20mm',
+                                        position:'middle',
+                                    },
+                                    yAxis: '20',
+                                    lineStyle: {
+                                        color: '#900',
+                                        type: 'solid'
+                                    },
+                                    name: '报警值'
+                                }
+                            ]
+                        }
+                    },
+                    /*{
+                        name:'黄兴镇',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {color: '#8cd5c2' }//改变折线颜色
+                            }
+                        },
+                        data: y_data,
+                    },*/
+                    {
+                        name:'黄花镇',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                color: function (y_hh_data) {
+                                    var index_color = y_hh_data.value;
+
+                                    if (index_color >= 20) {
+                                        return '#fe4365';
+                                    } else {
+                                        return '#25daba';
+                                    }
+                                },
+                                lineStyle: {color: '#8cd5c2' }//改变折线颜色
+                            }
+                        },
+                        data: y_hh_data,
+                        markLine: {
+                            data: [
+                                {
+                                    label:{
+                                        formatter:'预警值:20mm',
+                                        position:'middle',
+                                    },
+                                    yAxis: '20',
+                                    lineStyle: {
+                                        color: '#900',
+                                        type: 'solid'
+                                    },
+                                    name: '报警值'
+                                }
+                            ]
+                        }
+                    },
+                    /*{
+                        name:'黄花村',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {color: '#8cd5c2' }//改变折线颜色
+                            }
+                        },
+                        data: y_data,
+                    },*/
                 ]
             };
-
             rainsec.setOption(rain_option);
         }
     });
@@ -430,13 +690,34 @@ function init_humsec() {
         success: function (data) {
             var humsec_data = data.data;
             var x_data = new Array();
-            var y_data = new Array();
+            var y_cs_data = new Array();
+            var y_hx_data = new Array();
+            var y_hh_data = new Array();
             for (var i = 0; i < humsec_data.length; i++) {
                 if (humsec_data[i].hum == '') {
                     x_data.push('未知');
-                } else {
-                    y_data.push(parseFloat(humsec_data[i].hum));
+                }
+                if (humsec_data[i].aid == '01') {
+                    y_cs_data.push(humsec_data[i].hum);
                     x_data.push(humsec_data[i].time);
+                }
+            }
+            for (var i = 0; i < humsec_data.length; i++) {
+                if (humsec_data[i].hum == '') {
+                    x_data.push('未知');
+                }
+                if (humsec_data[i].aid == '0101') {
+                    y_hx_data.push(humsec_data[i].hum);
+                    //x_data.push(humsec_data[i].time);
+                }
+            }
+            for (var i = 0; i < humsec_data.length; i++) {
+                if (humsec_data[i].hum == '') {
+                    x_data.push('未知');
+                }
+                if(humsec_data[i].aid == '0102'){
+                    y_hh_data.push(humsec_data[i].hum);
+                    //x_data.push(humsec_data[i].time);
                 }
             }
             /*console.log(x_data);*/
@@ -459,6 +740,11 @@ function init_humsec() {
                     bottom: '0%',
                     containLabel: true
                 },
+                legend:{
+                    show:true,
+                    selectedMode:'single',    //设置显示单一图例的图形，点击可切换
+                    data:['长沙县','黄兴镇','黄花镇'],
+                },
                 xAxis: [
                     {
                         type: 'category',
@@ -476,11 +762,12 @@ function init_humsec() {
                 ],
                 series: [
                     {
+                        name:'长沙县',
                         type: 'line',
                         itemStyle: {
                             normal: {
-                                color: function (y_data) {
-                                    var index_color = y_data.value;
+                                color: function (y_cs_data) {
+                                    var index_color = y_cs_data.value;
 
                                     if (index_color < 25) {
                                         return '#fe4365';
@@ -495,7 +782,109 @@ function init_humsec() {
                                 lineStyle: {color: '#7CFC00' }//改变折线颜色
                             }
                         },
-                        data: y_data,
+                        data: y_cs_data,
+                        markLine: {
+                            data: [
+                                {
+                                    label:{
+                                        formatter:'预警值:80%',
+                                        position:'middle',
+                                    },
+                                    yAxis:'80',
+                                    lineStyle:{
+                                        color:'#00BFFF',
+                                        type: 'solid'
+                                    },
+                                    name:'报警值'
+                                },
+                                {
+                                    label:{
+                                        formatter:'预警值:25%',
+                                        position:'middle',
+                                    },
+                                    yAxis:'25',
+                                    lineStyle:{
+                                        color:'#900',
+                                        type: 'solid'
+                                    },
+                                    name:'报警值'
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        name:'黄兴镇',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                color: function (y_hx_data) {
+                                    var index_color = y_hx_data.value;
+
+                                    if (index_color < 25) {
+                                        return '#fe4365';
+                                    }
+                                    else if (index_color >= 80) {
+                                        return '#00BFFF';
+                                    }
+                                    else {
+                                        return '#7CFC00';
+                                    }
+                                },
+                                lineStyle: {color: '#7CFC00' }//改变折线颜色
+                            }
+                        },
+                        data: y_hx_data,
+                        markLine: {
+                            data: [
+                                {
+                                    label:{
+                                        formatter:'预警值:80%',
+                                        position:'middle',
+                                    },
+                                    yAxis:'80',
+                                    lineStyle:{
+                                        color:'#00BFFF',
+                                        type: 'solid'
+                                    },
+                                    name:'报警值'
+                                },
+                                {
+                                    label:{
+                                        formatter:'预警值:25%',
+                                        position:'middle',
+                                    },
+                                    yAxis:'25',
+                                    lineStyle:{
+                                        color:'#900',
+                                        type: 'solid'
+                                    },
+                                    name:'报警值'
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        name:'黄花镇',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                color: function (y_hh_data) {
+                                    var index_color = y_hh_data.value;
+
+                                    if (index_color < 25) {
+                                        return '#fe4365';
+                                    }
+                                    else if (index_color >= 80) {
+                                        return '#00BFFF';
+                                    }
+                                    else {
+                                        return '#7CFC00';
+                                    }
+                                },
+                                lineStyle: {color: '#7CFC00' }//改变折线颜色
+                            }
+                        },
+                        data: y_hh_data,
                         markLine: {
                             data: [
                                 {
