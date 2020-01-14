@@ -9,6 +9,8 @@
         <result property="pm" column="pm"/>
         <result property="content" column="content"/>
         <result property="mid" column="mid"/>
+        <result property="aid" column="aid"/>
+        <result property="aname" column="aname"/>
     </resultMap>
 
     <resultMap type="Secwatwarn" id="SecurityWatResult">
@@ -19,25 +21,31 @@
         <result property="sdata" column="sdata"/>
         <result property="fudata" column="fudata"/>
         <result property="bacdata" column="bacdata"/>
+        <result property="aid" column="aid"/>
+        <result property="aname" column="aname"/>
     </resultMap>
 
     <select id="selectRainSecList" resultMap="SecurityEnvResult">
         select
           rain,
-          time
+          time,
+          a.aid as aid
         from
-          env_data
-        where rain>0
+          env_data a,
+          area b
+        where a.aid=b.aid and rain>0
         order by time ASC
     </select>
 
     <select id="selectPmSecList" resultMap="SecurityEnvResult">
         select
           pm,
-          time
+          time,
+          a.aid as aid
         from
-          env_data
-        where pm>0
+          env_data a,
+          area b
+        where a.aid=b.aid and pm>0
         order by time ASC
     </select>
 
@@ -62,9 +70,12 @@
     <select id="selectHumSecList" resultMap="SecurityEnvResult">
         select
           hum,
-          time
+          time,
+          a.aid as aid
         from
-          env_data
+          env_data a,
+          area b
+        where a.aid=b.aid
         order by time ASC
     </select>
 

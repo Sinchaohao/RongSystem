@@ -20,7 +20,16 @@ public class Secenvwarn extends BaseEntity {
     private String wlevel;
     private String hum;
     private String content;
+    private String aid;
     private long secnum;
+
+    public String getAid() {
+        return aid;
+    }
+
+    public void setAid(String aid) {
+        this.aid = aid;
+    }
 
     public int getMid() {
         return mid;
@@ -105,6 +114,7 @@ public class Secenvwarn extends BaseEntity {
                 ", wlevel='" + wlevel + '\'' +
                 ", hum='" + hum + '\'' +
                 ", content='" + content + '\'' +
+                ", aid='" + aid + '\'' +
                 ", secnum=" + secnum +
                 '}';
     }
