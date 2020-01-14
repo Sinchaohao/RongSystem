@@ -14,11 +14,18 @@ public class MetSum extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-
+    private String data;
+    private String temp;
+    private String sumtemp;
     private String hum;
     private String sumhum;
     private String rname;
     private String sumrain;
+    private String countrain;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public String getHum() {
         return hum;
@@ -52,23 +59,50 @@ public class MetSum extends BaseEntity {
         this.sumrain = sumrain;
     }
 
-    /*@Override
-    public String toString(){
-        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("hum",getHum())
-                .append("sumhum",getSumhum())
-                .append("rname",getRname())
-                .append("sumrain",getSumrain())
-                .toString();
-    }*/
+    public String getCountrain() {
+        return countrain;
+    }
+
+    public void setCountrain(String countrain) {
+        this.countrain = countrain;
+    }
+
+    public String getTemp() {
+        return temp;
+    }
+
+    public void setTemp(String temp) {
+        this.temp = temp;
+    }
+
+    public String getSumtemp() {
+        return sumtemp;
+    }
+
+    public void setSumtemp(String sumtemp) {
+        this.sumtemp = sumtemp;
+    }
+
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
 
     @Override
     public String toString() {
         return "MetSum{" +
-                "hum='" + hum + '\'' +
+                "data='" + data + '\'' +
+                ", temp='" + temp + '\'' +
+                ", sumtemp='" + sumtemp + '\'' +
+                ", hum='" + hum + '\'' +
                 ", sumhum='" + sumhum + '\'' +
                 ", rname='" + rname + '\'' +
                 ", sumrain='" + sumrain + '\'' +
+                ", countrain='" + countrain + '\'' +
                 '}';
     }
 }

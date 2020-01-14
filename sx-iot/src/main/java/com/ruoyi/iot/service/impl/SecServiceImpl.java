@@ -11,7 +11,6 @@ import java.util.List;
 
 import com.ruoyi.common.annotation.DataSource;
 import com.ruoyi.common.enums.DataSourceType;
-import com.ruoyi.common.utils.PageData;
 import com.ruoyi.iot.domain.Security;
 import com.ruoyi.iot.mapper.SecMapper;
 import com.ruoyi.iot.service.ISecService;
@@ -25,7 +24,7 @@ public class SecServiceImpl implements ISecService {
     private SecMapper secMapper;
 
     /**
-     * 获取所有安防信息
+     * 获取所有安防警报类型
      *
      * @return 结果
      */
@@ -34,4 +33,5 @@ public class SecServiceImpl implements ISecService {
     public List<Security> selectSecList(){
         return secMapper.selectSecList();
     };
+
 }

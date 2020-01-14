@@ -14,4 +14,5 @@ import java.util.List;
 @Mapper
 public interface UserTerMapper {
     public List<UserTerminals> selectTerInvalid();
+    public int updateTid(int tid);
 }

@@ -21,4 +21,10 @@ public class SoilWaterServiceImpl  implements SoilWaterService {
     public List<SoilWater>select(){
         return soilWaterMapper.select();
     }
+    @Override
+    @DataSource(value = DataSourceType.SXSOIL)
+    public List<SoilWater>selectname(){
+        return  soilWaterMapper.selectname();
+    }
+
 }

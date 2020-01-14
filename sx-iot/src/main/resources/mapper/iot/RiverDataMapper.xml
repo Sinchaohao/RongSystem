@@ -19,7 +19,7 @@
     </resultMap>
 
     <select id="selectData" resultMap="RiverDataResult">
-            select id,type,rid,rname,avg(data)as data,time from river_data
-            group by rname having rname like concat('%','水库','%') order by time desc limit 100;
+                select a.id,a.type,a.rid,a.rname,avg(data)as data,time from rivrepo_data a join areatel b
+                on a.rid=b.rid group by a.rname having a.rname like concat('%','水库','%') order by time desc limit 100;
     </select>
 </mapper>

@@ -55,4 +55,16 @@ public class SoilDeviceServiceImpl implements SoilDeviceService {
     {
         return  soilDeviceMapper.selectbyname(dname);
     }
+    @Override
+    @DataSource(value = DataSourceType.SXSOIL)
+    public List<SoilDevice>selectbynote()
+    {
+        return soilDeviceMapper.selectbynote();
+    }
+    @Override
+    @DataSource(value = DataSourceType.SXSOIL)
+    public List<SoilDevice>selectbyds()
+    {
+        return soilDeviceMapper.selectbyds();
+    }
 }

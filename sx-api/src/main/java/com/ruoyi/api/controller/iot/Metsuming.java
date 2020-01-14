@@ -44,4 +44,23 @@ public class Metsuming {
         RongApiRes test = RongApiService.get_list(pre);
         return test;
     }
+
+
+    @GetMapping("/see")
+    @ApiOperation(value = "可见度")
+
+    public RongApiRes selectSeeList(){
+        List pre = metsumservice.selectSeeMet();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
+
+    @GetMapping("/river")
+    @ApiOperation(value = "水位")
+
+    public RongApiRes selectRiverList(){
+        List pre = metsumservice.selectRiverMet();
+        RongApiRes test = RongApiService.get_list(pre);
+        return test;
+    }
 }

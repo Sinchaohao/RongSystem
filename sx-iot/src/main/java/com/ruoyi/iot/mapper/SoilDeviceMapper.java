@@ -20,5 +20,9 @@ public int add(@Param("did") String did ,@Param("dname") String dname ,@Param("d
     public SoilDevice selectbyid(@Param("did")String did);
 //    根据地域名查询
     public  SoilDevice selectbyname(@Param("dname") String dname);
+//
+    public List<SoilDevice> selectbynote();
+
+    public List<SoilDevice> selectbyds();
 
 }

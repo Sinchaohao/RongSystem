@@ -8,7 +8,8 @@ package com.ruoyi.iot.mapper;/* *
  * @开发版本：综合练习V0.1
  */
 
-import com.ruoyi.iot.domain.Secwarn;
+import com.ruoyi.iot.domain.Secenvwarn;
+import com.ruoyi.iot.domain.Secwatwarn;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -21,39 +22,58 @@ public interface SecWarnMapper {
      *
      * @return 结果
      */
-    public List<Secwarn> selectRainSecList();
+    public List<Secenvwarn> selectRainSecList();
 
     /**
      * 获取所有空气质量安防警报信息
      *
      * @return 结果
      */
-    public List<Secwarn> selectPmSecList();
+    public List<Secenvwarn> selectPmSecList();
 
     /**
      * 获取所有温度安防警报信息
      *
      * @return 结果
      */
-    public List<Secwarn> selectTempSecList();
+    public List<Secenvwarn> selectTempSecList();
 
     /**
      * 获取所有水位安防警报信息
      *
      * @return 结果
      */
-    public List<Secwarn> selectWlvlSecList();
+    public List<Secenvwarn> selectWlvlSecList();
 
     /**
      * 获取所有湿度安防警报信息
      *
      * @return 结果
      */
-    public List<Secwarn> selectHumSecList();
+    public List<Secenvwarn> selectHumSecList();
     /**
-     * 获取所有安防警报类型触发信息
+     * 获取环境警报类型触发信息
      *
      * @return 结果
      */
-    public List<Secwarn> selectTypeSecList();
+    public List<Secenvwarn> selectEnvTypeSecList();
+
+    /**
+     * 获取水质警报类型触发信息
+     *
+     * @return 结果
+     */
+    public List<Secenvwarn> selectWatTypeSecList();
+    /**
+     * 获取水质警报（毒理）触发信息
+     *
+     * @return 结果
+     */
+    public List<Secwatwarn> water();
+    /**
+     * 获取水质警报（细菌数量）触发信息
+     *
+     * @return 结果
+     */
+    public List<Secwatwarn> bacsec();
 }

@@ -15,5 +15,9 @@
 select date,water from tb_water
 order by date
     </select>
+    <select id="selectname" resultMap="SoilWaterResult">
+select name,water from tb_water
+order by water
+    </select>
 
 </mapper>

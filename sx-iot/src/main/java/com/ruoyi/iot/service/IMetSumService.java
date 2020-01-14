@@ -11,4 +11,6 @@ import java.util.List;
 public interface IMetSumService {
     public List<MetSum> selectHumMet();
     public List<MetSum> selectRainMet();
+    public List<MetSum> selectSeeMet();
+    public List<MetSum> selectRiverMet();
 }

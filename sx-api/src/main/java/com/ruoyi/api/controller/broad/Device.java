@@ -37,7 +37,7 @@ public class Device {
         * 返回按照创建时间倒序的十条带有经纬度的维修设备记录
         * @author 张超 teavamc
         * @date 2019/1/25
-        * @param []
+        * @param
         * @return com.ruoyi.api.domain.RongApiRes
         */
     @CrossOrigin
@@ -51,7 +51,7 @@ public class Device {
         * 按照终端地址进行运行状态的分组统计
         * @author 张超 teavamc
         * @date 2019/1/25
-        * @param []
+        * @param
         * @return com.ruoyi.api.domain.RongApiRes
         */
     @CrossOrigin
@@ -65,7 +65,7 @@ public class Device {
      * 回传目前设备挂载总数,运行数，停止数
      * @author 张超 teavamc
      * @date 2019/1/25
-     * @param []
+     * @param
      * @return com.ruoyi.api.domain.RongApiRes
      */
     @CrossOrigin
@@ -95,7 +95,7 @@ public class Device {
         * (排序后）按照终端地址进行运行状态的分组统计,包括分组地区、挂在数量、运行数量、停止数量、维修数量
         * @author 张超 teavamc
         * @date 2019/2/13
-        * @param []
+        * @param
         * @return com.ruoyi.api.domain.RongApiRes
         */
     @CrossOrigin
@@ -112,7 +112,7 @@ public class Device {
         * 对List<Tersga>数据结构按照Tersga的Sum熟悉进行排序
         * @author 张超 teavamc
         * @date 2019/2/13
-        * @param [list, start, end]
+        * @param  start, end]
         * @return void
         */
     public void sumtermQuickSort(List<Tersga> list,int start,int end){

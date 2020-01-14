@@ -1,10 +1,173 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>welcome</h1>
+<!DOCTYPE HTML>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+
+<body class="gray-bg">
+
+<div class="container-div">
+    <div class="row">
+        <form action="/iot/terwarning/updatetid" method="post">
+            终端号:<input type="text" name="tid" /></br>
+            <input type="submit" value="确定">
+        </form>
+<!--        <div class="col-sm-12 search-collapse">-->
+<!--            <form id="formId">-->
+<!--                <div class="select-list">-->
+<!--                    <ul>-->
+<!--                        <li>-->
+<!--                            终端编号：<input type="text" name="tid"/>-->
+<!--                        </li>-->
+
+
+<!--                        <li>-->
+<!--                            <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>-->
+<!--                            <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+
+        <div class="col-sm-12 select-table table-striped">
+            <table id="bootstrap-table" data-mobile-responsive="true"></table>
+        </div>
+    </div>
+</div>
+<div th:include="include :: footer"></div>
+
+<script th:inline="javascript">
+    var prefix = ctx + "iot/terwarning";
+    function listen(url){
+
+    }
+    function setpublic(tid){
+
+    }
+    function setUnpublic(tid){
+
+    }
+    $(function() {
+        var options = {
+            url: prefix + "/list",
+            modalName: "终端管理",
+            search: true,
+            showExport: false,
+            columns: [{
+                checkbox: true
+            },
+                {
+                    field : 'tid',
+                    align: 'center',
+                    title : '终端编号',
+                    visible: true
+                },
+                {
+                    field : 'userid',
+                    title : '用户编号',
+                    align: 'center',
+                    sortable: true
+                },
+                {
+                    field : 'managerid',
+                    title : '管理员编号',
+                    align: 'center',
+                    sortable: true
+                },
+                {
+                    field : 'warn',
+                    title : '警告类型',
+                    align: 'center',
+                    sortable: true
+                },
+                {
+                    field : 'status',
+                    title : '就勤情况',
+                    align: 'center',
+                    sortable: true
+                },
+                {
+                    field : 'lasttime',
+                    title : '最后时间',
+                    align: 'center',
+                    sortable: true
+                },
+                {
+                    field : 'isuse',
+                    title : '是否可用',
+                    align: 'center',
+                    sortable: true,
+                    width:"7%",
+                    formatter:function (value) {
+                        if(value == 0){
+                            var msg = "<span style='color:#e25e08;'>不可用</span>"
+                            return msg;
+                        }else {
+                            var msg = "<span style='color:#13e21b;'>可用</span>"
+                            return msg;
+                        }
+                    }
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    visible: true,
+                    formatter: function(value, row, index) {
+                        var msg = '<a class="btn btn-xs btn-primary" >设为可用</a> ';
+                        var actions = '<a class="btn btn-xs btn-success" >设为不可用</a>';
+                        if(row.isuse == 0){
+                            return msg;
+                        }else {
+                            return actions;
+                        }
+                    }
+                }
+
+            ]
+        };
+        $.table.init(options);
+    });
+</script>
+<script th:src="@{/js/plugins/layer/laydate/laydate.js}"></script>
+<script th:src="@{/js/plugins/layer/layui-v2.4.5/layui/layui.js}"></script>
+<script>
+    laydate({
+        elem:"#recivedtime",
+        event:"focus"
+    });
+    laydate({
+        elem:"#recivedtime",
+        event:"focus"
+    });
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem:"#broad",
+            type: 'time',
+        });
+    });
+</script>
+<script>
+    laydate({
+        elem:"#endtime",
+        event:"focus"
+    });
+    laydate({
+        elem:"#endtime",
+        event:"focus"
+    });
+    layui.use('laydate', function(){
+        var laydate2 = layui.laydate;
+
+        //执行一个laydate实例
+        laydate2.render({
+            elem:"#broad",
+            type: 'time',
+        });
+    });
+</script>
+
 </body>
 </html>

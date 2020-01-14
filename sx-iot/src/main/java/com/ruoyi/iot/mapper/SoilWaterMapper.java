@@ -8,5 +8,7 @@ import java.util.List;
 public interface SoilWaterMapper {
     public List<SoilWater> select();
 //    地域含水量
-//    public List<SoilWater> selectname();
+  public List<SoilWater> selectname();
+
+
 }

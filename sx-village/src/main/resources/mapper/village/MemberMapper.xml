@@ -36,7 +36,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="woman"    column="woman"    />
     </resultMap>
     <select id="selectbyedulevel" resultMap="MemberResult">
-        select edulevel,count(edulevel)as pid from myc_partymember group by edulevel;
+        select edulevel,count(edulevel)as pid from myc_partymember
+        where partyjoindate>='2001年1月1日' group by edulevel order by partyjoindate desc limit 100
     </select>
 
     <select id="countbygroup" resultMap="McountResult">

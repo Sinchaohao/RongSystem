@@ -14,4 +14,8 @@ public interface MetSumMapper {
     public List<MetSum> selectHumMet();
 
     public List<MetSum> selectRainMet();
+
+    public List<MetSum> selectSeeMet();
+
+    public List<MetSum> selectRiverMet();
 }
