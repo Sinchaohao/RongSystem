@@ -14,14 +14,17 @@
 
     <select id="listAreaGrouping"  parameterType="SecAreaGrouping" resultMap="SecAreaGroupingResult">
         select
-			a.aid as aid,
-			a.parentaid as parentaid,
-			a.aname as aname,
-			a.note as note
-        from area a
+        a.aid as aid,
+        a.parentaid as parentaid,
+        a.aname as aname,
+        a.note as note,
+        b.time as time
+        from area a,
+        (select aid,max(time) as time from env_data group by aid) b
         <where>
+            a.aid=b.aid
             <if test="aid != null  and aid != '' ">and a.aid like CONCAT(#{aid},'%')</if>
-            <if test="aname != null  and aname != '' ">and a.aname like CONCAT('%',#{aname},'%')</if>
+            <if test="time != null  and time != '' ">and b.time like CONCAT('%',#{time},'%')</if>
         </where>
     </select>
 

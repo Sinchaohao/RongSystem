@@ -12,6 +12,7 @@ public class SecAreaGrouping {
     private String parentaid;//父区域编号
     private String aname;//区域名称
     private String note;//备注
+    private String time;//最后警报时间
     private String userid;//用户id
 
     private String parentaname;
@@ -44,6 +45,14 @@ public class SecAreaGrouping {
 
     public String getNote() {
         return note;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public void setNote(String note) {
@@ -89,6 +98,7 @@ public class SecAreaGrouping {
                 ", parentaid='" + parentaid + '\'' +
                 ", aname='" + aname + '\'' +
                 ", note='" + note + '\'' +
+                ", time='" + time + '\'' +
                 ", userid='" + userid + '\'' +
                 ", parentaname='" + parentaname + '\'' +
                 ", subSecArea=" + subSecArea +

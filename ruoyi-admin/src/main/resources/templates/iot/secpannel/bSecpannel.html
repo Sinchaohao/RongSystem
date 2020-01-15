@@ -61,7 +61,7 @@
                             </li>
 
                             <li>
-                                地域名称：<input type="text" name="aname" id="aname"/>
+                                最后警报时间：<input type="text" name="time" id="time"/>
                             </li>
 
                             <li>
@@ -334,6 +334,11 @@
                 {
                     field: 'note',
                     title: '备注',
+                    sortable: true
+                },
+                {
+                    field: 'time',
+                    title: '最后警报时间',
                     sortable: true
                 },
                 {
