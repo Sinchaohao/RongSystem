@@ -757,7 +757,7 @@ function init_humsec() {
                         type: 'value',
                         axisLabel: {
                             formatter: '{value}'
-                        }
+                        },
                     }
                 ],
                 series: [
