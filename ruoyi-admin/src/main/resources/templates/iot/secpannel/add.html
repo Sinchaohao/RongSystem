@@ -26,7 +26,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label">父级编号：</label>
             <div class="col-sm-8">
-                <input id="parentaid" name="parentaid" class="form-control" type="text" disabled>
+                <input id="parentaid" name="parentaid" class="form-control" type="text">
             </div>
         </div>
 
@@ -62,7 +62,7 @@
         }
     });
 
-    $("#aid").change(function (value) {
+    /*$("#aid").change(function (value) {
         var aid = $("#aid").val()
         if(aid.length>2){
             $("#parentaid").val(aid.substr(0,aid.length-2))
@@ -70,7 +70,7 @@
             $("#parentaid").val("0")
         }
 
-    })
+    })*/
 
     function submitHandler() {
         if ($.validate.form()) {
