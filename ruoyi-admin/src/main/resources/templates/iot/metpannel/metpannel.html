@@ -27,9 +27,89 @@
     <script th:src="@{/ajax/libs/jquery-ztree/3.5/js/jquery.ztree.all-3.5.js}"></script>
     <link th:href="@{/ajax/libs/jquery-layout/jquery.layout-latest.css}" rel="stylesheet"/>
     <link th:href="@{/ajax/libs/jquery-ztree/3.5/css/metro/zTreeStyle.css}" rel="stylesheet"/>
+    <style type="text/css">
+        div.arealeft {float:left;
+            width:15%;}
+        div.arearight{float:right;
+            width:85%;}
+
+    </style>
 </head>
-<body class="gray-bg" onload="metload();select();$.table.search()">
-<div class="row  border-bottom  dashboard-header">
+<body onload="metload();select();$.table.search()">
+
+
+<div class="arealeft"><a href="javascript:vod(0);"><u id="show_hide1"><font color="blue">长沙市+</font></u></a></div><br>
+<ul id="content1">
+    <li><a href="#"> 芙蓉区</a></li>
+    <li><a href="#"> 天心区</a></li>
+    <li><a href="#"> 雨花区</a></li>
+    <li><a href="#"> 开福区</a></li>
+    <li><a href="#"> 岳麓区</a></li>
+    <li><a href="#"> 望城区</a></li>
+</ul>
+
+<div class="arealeft"><a href="javascript:vod(0);"><u id="show_hide2"><font color="blue">岳阳市+</font></u></a></div><br>
+<ul id="content2" >
+    <li><a href="#"> 临湘市</a></li>
+    <li><a href="#"> 华容县</a></li>
+    <li><a href="#"> 平江县</a></li>
+    <li><a href="#"> 湘阴县</a></li>
+    <li><a href="#"> 云溪区</a></li>
+    <li><a href="#"> 君山区</a></li>
+</ul>
+
+<div class="arealeft"><a href="javascript:vod(0);"><u id="show_hide3"><font color="blue">衡阳市+</font></u></a></div><br>
+<ul id="content3" >
+    <li><a href="#"> 衡阳县</a></li>
+    <li><a href="#"> 衡山县</a></li>
+    <li><a href="#"> 衡南县</a></li>
+    <li><a href="#"> 祁东县</a></li>
+    <li><a href="#"> 石鼓区</a></li>
+    <li><a href="#"> 南岳区</a></li>
+</ul>
+<script>
+    document.getElementById('show_hide1').onclick = function (){
+        var con = document.getElementById('content1').style;
+        if(this.innerHTML == '长沙市+'){
+            con.display = 'none';
+            this.innerHTML = '长沙市-';
+            return false;
+        } else {
+            con.display = '';
+            this.innerHTML = '长沙市+';
+            return false;
+        }
+    }
+</script>
+<script>
+    document.getElementById('show_hide2').onclick = function (){
+        var con = document.getElementById('content2').style;
+        if(this.innerHTML == '岳阳市+'){
+            con.display = 'none';
+            this.innerHTML = '岳阳市-';
+            return false;
+        } else {
+            con.display = '';
+            this.innerHTML = '岳阳市+';
+            return false;
+        }
+    }
+</script>
+<script>
+    document.getElementById('show_hide3').onclick = function (){
+        var con = document.getElementById('content3').style;
+        if(this.innerHTML == '衡阳市+'){
+            con.display = 'none';
+            this.innerHTML = '衡阳市-';
+            return false;
+        } else {
+            con.display = '';
+            this.innerHTML = '衡阳市+';
+            return false;
+        }
+    }
+</script>
+<div class="row  border-bottom  dashboard-header arearight" >
     <div class="wrapper wrapper-content">
         <div class="row">
             <div class="col-sm-6">
@@ -189,19 +269,16 @@
 
 
 <form action="/iot/metpannel/find" method="post">
-    编号：<input type="text" name="id"/></br>
+    <input type="text" name="id"/>
     <input type="submit" value="编号查询"/>
-    <input type="reset" value="重置">
 </form>
 <form action="/iot/metpannel/findname" method="post">
-    地区：<input type="text" name="rname"/></br>
+    <input type="text" name="rname"/>
     <input type="submit" value="地区查询"/>
-    <input type="reset" value="重置">
 </form>
 <form action="/iot/metpannel/deleteid" method="post">
-    编号：<input type="text" name="id"/></br>
-    <input type="submit" value="删除"/>
-    <input type="reset" value="重置">
+    <input type="text" name="id"/>
+    <input type="submit" value="编号删除"/>
 </form>
 <!--<form action="/iot/soilpannel/selectbyname" method="get">-->
 <!--    地域名:<input type="text" name="dname"/></br>-->

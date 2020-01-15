@@ -6,10 +6,11 @@
 </head>
 <body>
 <h2 align="center">查询结果</h2>
+<a class="back_btn" href="javascript:window.history.go(-1)">< 返回气象数据主页</a>
 <table align="center">
     <thead>
     <tr>
-        <th>地区序号</th>
+<!--        <th>地区序号</th>-->
         <th>地区</th>
         <th>温度</th>
         <th>测量时间</th>
@@ -17,7 +18,7 @@
     </thead>
     <tbody th:each="i:${dataa}">
     <tr>
-        <td th:text="${i.id}"></td>
+<!--        <td th:text="${i.id}"></td>-->
         <td th:text="${i.rname}"></td>
         <td th:text="${i.data}"></td>
         <td th:text="${i.time}"></td>
